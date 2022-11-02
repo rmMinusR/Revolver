@@ -20,7 +20,7 @@ MonoBehaviour:
     - key:
         reference: Microsoft.MixedReality.Toolkit.Input.SyntheticHandsSubsystem,
           Microsoft.MixedReality.Toolkit.Input
-      value: {fileID: 0}
+      value: {fileID: 11400000, guid: 28957320c214d02448a0956b62607049, type: 2}
     - key:
         reference: Microsoft.MixedReality.Toolkit.Input.MRTKHandsAggregatorSubsystem,
           Microsoft.MixedReality.Toolkit.Input

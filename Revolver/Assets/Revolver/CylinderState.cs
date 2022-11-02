@@ -5,34 +5,27 @@ using UnityEngine;
 
 public sealed class CylinderState : MonoBehaviour
 {
-    [Serializable]
-    public class Slot
+    private List<ShellSlot> slots;
+
+    private void Start()
     {
-        public Transform visualRoot;
-        public Bullet loaded;
+        slots = new List<ShellSlot>(GetComponentsInChildren<ShellSlot>());
     }
 
-    [SerializeField] private List<Slot> slots;
-
     [Space]
-    [SerializeField] private Transform bulletOrigin;
+    [SerializeField] internal Transform bulletOrigin;
 
     [ContextMenu("Fire")]
     public void Fire()
     {
-        if (slots[0].loaded != null)
-        {
-            slots[0].loaded.Fire(bulletOrigin);
-            Destroy(slots[0].loaded.gameObject);
-            slots[0].loaded = null;
-        }
+        if (slots[0].contents != null) slots[0].contents.Ignite();
 
         AdvanceCylinder();
     }
 
-    public void Load(Bullet bulletPrefab)
+    public void Load(Shell bulletPrefab)
     {
-        if (slots[0].loaded == null) slots[0].loaded = Instantiate(bulletPrefab, slots[0].visualRoot);
+        if (slots[0].contents == null) slots[0].Place(bulletPrefab);
 
         AdvanceCylinder();
     }
@@ -40,7 +33,7 @@ public sealed class CylinderState : MonoBehaviour
     [ContextMenu("Advance Cylinder")]
     public void AdvanceCylinder()
     {
-        Slot s = slots[0];
+        ShellSlot s = slots[0];
         slots.RemoveAt(0);
         slots.Add(s);
     }

@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb137bfd2306774cb1584c4d1d1d12b, type: 3}
+  m_Name: MRTKSyntheticHandsConfig
+  m_EditorClassIdentifier: 
+  synthesizeWhenDevicePresent: 0
+  poseOffset: {x: 0, y: 0, z: 0}
+  leftHandPosition:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Left Hand Position
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: f419f164-6f2c-401f-a349-9c5a70708301
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -2024308242397127297, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  leftHandRotation:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Left Hand Rotation
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 37ad2a13-d6bb-4d8b-b80a-18ecb8386343
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 8248158260566104461, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  leftHandSelect:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Left Hand Select
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 11bb2f59-b89f-49fc-9e09-8596f7bc9aec
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  rightHandPosition:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Right Hand Position
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: cf3066a9-283c-4441-b449-047b84b6b124
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -3326005586356538449, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  rightHandRotation:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Right Hand Rotation
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 4427e98a-bb5e-4e00-84d3-d8913d3a1b5b
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 5101698808175986029, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  rightHandSelect:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Right Hand Select
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 501f8ed8-6802-4d02-b732-2facc5a73b88
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 187161793506945269, guid: c348712bda248c246b8c49b3db54643f, type: 3}
