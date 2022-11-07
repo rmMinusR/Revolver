@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
-public sealed class Hammer : MonoBehaviour
+public sealed class HammerSparks : MonoBehaviour
 {
     [SerializeField] private GameObject sparks;
     [SerializeField] [Min(0)] private float sparkThreshold = 0.1f;

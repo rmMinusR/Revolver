@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5988298044482557662}
   - component: {fileID: 7592348771573118685}
   m_Layer: 0
-  m_Name: Sparks
+  m_Name: Impact Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

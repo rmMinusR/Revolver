@@ -1,0 +1,54 @@
+{
+    "name": "Touchpad",
+    "maps": [
+        {
+            "name": "Touchpad",
+            "id": "021abb4e-0b7d-4a7e-ab93-2ce50d8bd336",
+            "actions": [
+                {
+                    "name": "Touchpad touched",
+                    "type": "Button",
+                    "id": "7d495c57-7e5a-4869-84f9-e39bf37517da",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Touchpad pos",
+                    "type": "Value",
+                    "id": "cfaa18d6-e735-44c7-9246-badefcdae0dd",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2a67062b-6bd1-4dbb-afa6-1de1608a1426",
+                    "path": "<WMRSpatialController>/touchpadTouched",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touchpad touched",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9adc8f20-78eb-43ed-b2a0-ff497f24f794",
+                    "path": "<WMRSpatialController>/touchpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touchpad pos",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
