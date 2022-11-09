@@ -8,7 +8,8 @@ public sealed class Revolver : MonoBehaviour
     [Header("Components")]
     public HammerDriver hammer;
     public TriggerDriver trigger;
-    public CylinderState cylinder;
+    public CylinderState cylinderState;
+    public CylinderPopout cylinderPopout;
 
     [Header("Controls")]
     public TouchpadThroughput touchpadControl;

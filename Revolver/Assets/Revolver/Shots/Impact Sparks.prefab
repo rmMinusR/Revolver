@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8450987512801947191}
   - component: {fileID: 5988298044482557662}
   - component: {fileID: 7592348771573118685}
+  - component: {fileID: 6652182200170814040}
   m_Layer: 0
   m_Name: Impact Sparks
   m_TagString: Untagged
@@ -125,3 +126,16 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &6652182200170814040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3245631793872433891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e32fe63746ef4b46abbab766c2741ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToLive: 5

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public sealed class HammerDriver : MonoBehaviour
 {
+    private Revolver revolver;
     private TouchpadThroughput touchpad;
 
     [SerializeField] private AnimationCurve pullInputCurve;
@@ -22,7 +23,8 @@ public sealed class HammerDriver : MonoBehaviour
 
     private void Start()
     {
-        touchpad = GetComponentInParent<Revolver>().touchpadControl;
+        revolver = GetComponentInParent<Revolver>();
+        touchpad = revolver.touchpadControl;
 
         touchpad.ActivateControls();
     }
@@ -34,7 +36,11 @@ public sealed class HammerDriver : MonoBehaviour
         {
             hammerLoc = Mathf.Clamp01(pullInputCurve.Evaluate(touchpad.Position.y));
             hammerVel = 0;
-            locked |= hammerLoc > lockAngle;
+            if (!locked && hammerLoc > lockAngle)
+            {
+                locked = true;
+                if (!revolver.cylinderPopout.IsOut) revolver.cylinderState.AdvanceCylinder();
+            }
         }
         
         //Virtual physics
