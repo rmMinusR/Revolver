@@ -11,6 +11,10 @@ public sealed class ShellSlot : MonoBehaviour
         if (contents) Destroy(contents.gameObject);
         contents = Instantiate(newContents, transform);
         contents.slot = this;
+
+        contents.transform.localPosition = Vector3.zero;
+        contents.transform.localRotation = Quaternion.identity;
+        contents.transform.localScale = Vector3.one;
     }
 
 #if UNITY_EDITOR

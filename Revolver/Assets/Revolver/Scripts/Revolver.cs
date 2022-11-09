@@ -10,9 +10,11 @@ public sealed class Revolver : MonoBehaviour
     public TriggerDriver trigger;
     public CylinderState cylinderState;
     public CylinderPopout cylinderPopout;
+    public CylinderLoader cylinderLoader;
 
     [Header("Controls")]
     public TouchpadThroughput touchpadControl;
     public InputActionReference triggerControl;
+    public InputActionReference loaderControl;
     public InputActionReference haptics;
 }
