@@ -9,8 +9,8 @@ public sealed class CylinderPopout : MonoBehaviour
     [SerializeField] private Transform centerOfMass;
 
     [SerializeField] [Min(0)] private float popoutAngle = 60;
-    [SerializeField] [Min(0)] private float returnForce = 1;
-    [SerializeField] [Min(0)] private float motionInfluence = 1;
+    [SerializeField] private float returnForce = 1;
+    [SerializeField] private float motionInfluence = 1;
 
     private float currentAngle = 0;
     private float currentVel = 0;

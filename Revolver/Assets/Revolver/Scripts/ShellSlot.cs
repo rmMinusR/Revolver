@@ -12,4 +12,16 @@ public sealed class ShellSlot : MonoBehaviour
         contents = Instantiate(newContents, transform);
         contents.slot = this;
     }
+
+#if UNITY_EDITOR
+    [SerializeField] private Shell dbgLoad;
+    private void Update()
+    {
+        if (dbgLoad != null)
+        {
+            Place(dbgLoad);
+            dbgLoad = null;
+        }
+    }
+#endif
 }

@@ -14315,6 +14315,10 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1379180737}
+    - target: {fileID: 8490843206186071084, guid: d9150145713fd30439b559b33950538a, type: 3}
+      propertyPath: lockAngle
+      value: 0.8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9150145713fd30439b559b33950538a, type: 3}
 --- !u!1 &414872170
