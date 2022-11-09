@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public sealed class Shell : MonoBehaviour
+public sealed class Shell : SparkReciever
 {
     [SerializeField] internal ShellSlot slot;
     [SerializeField] private FiredShot onFiredPrefab;
 
-    internal void Ignite()
+    protected internal override void OnSparked()
     {
         CylinderState manager = GetComponentInParent<CylinderState>();
 

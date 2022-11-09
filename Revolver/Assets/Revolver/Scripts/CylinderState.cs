@@ -18,7 +18,7 @@ public sealed class CylinderState : MonoBehaviour
     [ContextMenu("Fire")]
     public void Fire()
     {
-        if (slots[0].contents != null) slots[0].contents.Ignite();
+        if (slots[0].contents != null) slots[0].contents.OnSparked();
 
         AdvanceCylinder();
     }

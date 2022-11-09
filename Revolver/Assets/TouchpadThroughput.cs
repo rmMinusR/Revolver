@@ -10,4 +10,10 @@ public struct TouchpadThroughput
 
     public bool IsTouched => touchedControl.action.ReadValue<float>() > 0.5f;
     public Vector2 Position => posControl.action.ReadValue<Vector2>();
+
+    public void ActivateControls()
+    {
+        touchedControl.action.Enable();
+        posControl.action.Enable();
+    }
 }
