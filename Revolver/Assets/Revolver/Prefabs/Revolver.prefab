@@ -152,14 +152,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 399795834509267421}
-  m_LocalRotation: {x: 0, y: 0.86602545, z: 0.49999994, w: 0}
+  m_LocalRotation: {x: 0, y: 0.95371693, z: 0.30070582, w: 0}
   m_LocalPosition: {x: 0, y: -0.0023718476, z: -0.028535783}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 62223448464379529}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -120, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: -145, y: 0, z: 180}
 --- !u!1 &1973794403310449916
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,8 +215,6 @@ GameObject:
   - component: {fileID: 3172312007026955338}
   - component: {fileID: 9042698962948172134}
   - component: {fileID: 393749594710491132}
-  - component: {fileID: 7655115553915235363}
-  - component: {fileID: 722788781528704818}
   m_Layer: 7
   m_Name: visual
   m_TagString: Untagged
@@ -290,36 +288,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &7655115553915235363
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2317395430369884756}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!64 &722788781528704818
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2317395430369884756}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 5970359239379961709, guid: 9d9c883d32b6cd24e9f5804c5b72fe23, type: 3}
 --- !u!1 &2699075434946704044
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,7 +606,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hammer: {fileID: 8490843206186071084}
-  control: {fileID: 6454596279149084813, guid: e0ca4504471ca124088e1e2cfe6804ae, type: 3}
 --- !u!114 &2330858783299170686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -654,6 +621,11 @@ MonoBehaviour:
   hammer: {fileID: 8490843206186071084}
   trigger: {fileID: 2048276592872301783}
   cylinder: {fileID: 7995811841042839334}
+  touchpadControl:
+    touchedControl: {fileID: 5430125544674242259, guid: 024a3fcfeec4c2041bd2d3ba77e4b164, type: 3}
+    posControl: {fileID: -7041789284103137421, guid: 024a3fcfeec4c2041bd2d3ba77e4b164, type: 3}
+  triggerControl: {fileID: -5684558904543120851, guid: e0ca4504471ca124088e1e2cfe6804ae, type: 3}
+  haptics: {fileID: 2975796035989916654, guid: e0ca4504471ca124088e1e2cfe6804ae, type: 3}
 --- !u!1 &4483489867625962468
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,6 +948,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5471357362637016250}
+  - component: {fileID: 8190751293549214771}
   m_Layer: 7
   m_Name: spark origin
   m_TagString: Untagged
@@ -998,6 +971,20 @@ Transform:
   m_Father: {fileID: 3172312007026955338}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8190751293549214771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7036518584712912381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a491bed731ece43bacd91b32c76b38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sparkRange: 0.006
+  sparkFX: {fileID: 3245631793872433891, guid: c7d78cf0e1af9d54d8277bb5dfb4f830, type: 3}
 --- !u!1 &7358742314003732430
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,9 +1138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21fa7750df0dae84297a27d3bf377707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touchpad:
-    touchedControl: {fileID: 5430125544674242259, guid: 024a3fcfeec4c2041bd2d3ba77e4b164, type: 3}
-    posControl: {fileID: -7041789284103137421, guid: 024a3fcfeec4c2041bd2d3ba77e4b164, type: 3}
   pullInputCurve:
     serializedVersion: 2
     m_Curve:
@@ -1181,13 +1165,11 @@ MonoBehaviour:
   neutralPos: {fileID: 4145760617311257433}
   pulledPos: {fileID: 501377224195115745}
   hammer: {fileID: 3172312007026955338}
-  locked: 0
-  lockAngle: 0.5
+  locked: 1
+  lockAngle: 0.6
   returnForce: 150
   sparkThreshold: 3.5
-  sparkOrigin: {fileID: 5471357362637016250}
-  sparkRange: 0.1
-  sparkFX: {fileID: 3245631793872433891, guid: c7d78cf0e1af9d54d8277bb5dfb4f830, type: 3}
+  sparkEmitter: {fileID: 8190751293549214771}
 --- !u!1 &9079116825982698677
 GameObject:
   m_ObjectHideFlags: 0

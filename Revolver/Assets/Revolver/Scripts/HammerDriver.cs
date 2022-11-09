@@ -2,7 +2,7 @@ using UnityEngine;
 
 public sealed class HammerDriver : MonoBehaviour
 {
-    public TouchpadThroughput touchpad;
+    private TouchpadThroughput touchpad;
 
     [SerializeField] private AnimationCurve pullInputCurve;
     [SerializeField] private Transform neutralPos;
@@ -18,12 +18,12 @@ public sealed class HammerDriver : MonoBehaviour
 
     [Header("Sparks")]
     [SerializeField] [Min(0)] private float sparkThreshold = 0.3f;
-    [SerializeField] private Transform sparkOrigin;
-    [SerializeField] [Min(0)] private float sparkRange = 0.1f;
-    [SerializeField] private GameObject sparkFX;
+    [SerializeField] private SparkEmitter sparkEmitter;
 
     private void Start()
     {
+        touchpad = GetComponentInParent<Revolver>().touchpadControl;
+
         touchpad.ActivateControls();
     }
 
@@ -34,30 +34,29 @@ public sealed class HammerDriver : MonoBehaviour
         {
             hammerLoc = Mathf.Clamp01(pullInputCurve.Evaluate(touchpad.Position.y));
             hammerVel = 0;
-            locked &= hammerLoc > lockAngle;
+            locked |= hammerLoc > lockAngle;
         }
         
         //Virtual physics
         hammerLoc += hammerVel * Time.deltaTime;
         hammerVel += -returnForce * Time.deltaTime;
 
-        if (locked && hammerLoc >= lockAngle)
+        //If locked, hold angle
+        if (locked && hammerLoc <= lockAngle)
         {
             hammerLoc = lockAngle;
             hammerVel = 0;
         }
 
+        //If hitting lower bound, hold angle. If hitting fast enough, ignite.
         if (hammerLoc <= 0)
         {
-            if (Mathf.Abs(hammerVel) > sparkThreshold)
-            {
-                SparkReciever.SparkNearby(sparkOrigin.position, sparkRange);
-                Instantiate(sparkFX, sparkOrigin.position, sparkOrigin.rotation);
-            }
+            if (Mathf.Abs(hammerVel) > sparkThreshold) sparkEmitter.Fire();
             hammerLoc = 0;
             hammerVel = 0;
         }
 
+        //Update visuals
         hammer.SetPositionAndRotation(
             Vector3.Lerp(neutralPos.position, pulledPos.position, hammerLoc),
             Quaternion.Slerp(neutralPos.rotation, pulledPos.rotation, hammerLoc)
