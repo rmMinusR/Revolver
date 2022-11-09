@@ -14,9 +14,6 @@ public sealed class CylinderState : MonoBehaviour
         slots = new List<ShellSlot>(GetComponentsInChildren<ShellSlot>());
     }
 
-    [Space]
-    [SerializeField] internal Transform bulletOrigin;
-
     public void Load(Shell bulletPrefab)
     {
         if (slots[0].contents == null) slots[0].Place(bulletPrefab);

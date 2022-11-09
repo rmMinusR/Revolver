@@ -5,25 +5,16 @@ using UnityEngine.InputSystem;
 
 public sealed class TriggerDriver : MonoBehaviour
 {
-    [SerializeField] private HammerDriver hammer;
-    private InputAction control;
+    private Revolver revolver;
 
     private void Start()
     {
-        control = GetComponentInParent<Revolver>().triggerControl;
-
-        control.Enable();
-        control.performed -= OnTriggerPressed;
-        control.performed += OnTriggerPressed;
+        revolver = GetComponentInParent<Revolver>();
+        revolver.triggerControl.action.Enable();
     }
 
-    private void OnDestroy()
+    private void Update()
     {
-        control.performed -= OnTriggerPressed;
-    }
-
-    private void OnTriggerPressed(InputAction.CallbackContext ctx)
-    {
-        hammer.Release();
+        if (revolver.triggerControl.action.ReadValue<float>() > 0.5f) revolver.hammer.Release();
     }
 }

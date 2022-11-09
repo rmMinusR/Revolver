@@ -14315,6 +14315,14 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1379180737}
+    - target: {fileID: 7694517056975537939, guid: d9150145713fd30439b559b33950538a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7694517056975537939, guid: d9150145713fd30439b559b33950538a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -45
+      objectReference: {fileID: 0}
     - target: {fileID: 8490843206186071084, guid: d9150145713fd30439b559b33950538a, type: 3}
       propertyPath: lockAngle
       value: 0.8

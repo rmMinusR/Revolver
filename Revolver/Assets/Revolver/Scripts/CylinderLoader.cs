@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[Serializable]
+public class Loadable
+{
+    public Vector2 position;
+    public Shell prefab;
+    public Sprite icon;
+    public string name;
+}
+
 public sealed class CylinderLoader : MonoBehaviour
 {
     private Revolver revolver;
+    [SerializeField] private Transform uiRoot;
+    [SerializeField] private LoadableUI loadableUiPrefab;
 
+    [Space]
     [SerializeField] [Min(0)] private float deadZone = 0.2f;
     [SerializeField] private Vector2 neutralPos = new Vector2(0.5f, 0.5f);
-
-    [Serializable]
-    public class Loadable
-    {
-        public Vector2 position;
-        public Shell prefab;
-    }
     [SerializeField] private Loadable[] loadables;
 
     private Loadable GetClosest(Vector2 input)
@@ -42,12 +47,14 @@ public sealed class CylinderLoader : MonoBehaviour
     {
         revolver = GetComponentInParent<Revolver>();
         revolver.loaderControl.action.Enable();
+
+        foreach (Loadable i in loadables) Instantiate(loadableUiPrefab, uiRoot).Write(i);
     }
 
     private Loadable lastSelected = null;
     private void Update()
     {
-        Debug.Log(revolver.loaderControl.action.ReadValue<Vector2>());
+        uiRoot.gameObject.SetActive(revolver.cylinderPopout.IsOut);
 
         if (revolver.cylinderPopout.IsOut)
         {

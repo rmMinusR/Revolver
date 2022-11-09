@@ -11,6 +11,7 @@ public sealed class Revolver : MonoBehaviour
     public CylinderState cylinderState;
     public CylinderPopout cylinderPopout;
     public CylinderLoader cylinderLoader;
+    public Transform bulletOrigin;
 
     [Header("Controls")]
     public TouchpadThroughput touchpadControl;

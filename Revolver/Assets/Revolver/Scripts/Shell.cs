@@ -9,9 +9,9 @@ public sealed class Shell : SparkReciever
 
     protected internal override void OnSparked()
     {
-        CylinderState manager = GetComponentInParent<CylinderState>();
+        Revolver revolver = GetComponentInParent<Revolver>();
 
-        Instantiate(onFiredPrefab, manager.bulletOrigin.position, manager.bulletOrigin.rotation);
+        Instantiate(onFiredPrefab, revolver.bulletOrigin.position, revolver.bulletOrigin.rotation);
         onFiredPrefab = null;
     }
 }
