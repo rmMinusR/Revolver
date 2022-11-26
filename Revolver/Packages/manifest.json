@@ -6,6 +6,7 @@
     "com.microsoft.mrtk.graphicstools.unity": "file:MixedReality/com.microsoft.mrtk.graphicstools.unity-0.4.0.tgz",
     "com.microsoft.mrtk.input": "file:MixedReality/com.microsoft.mrtk.input-3.0.0-pre.11.tgz",
     "com.microsoft.spatialaudio.spatializer.unity": "file:MixedReality/com.microsoft.spatialaudio.spatializer.unity-2.0.37.tgz",
+    "com.unity.ai.navigation": "https://github.com/needle-mirror/com.unity.ai.navigation.git",
     "com.unity.cinemachine": "2.8.9",
     "com.unity.feature.development": "1.0.1",
     "com.unity.ide.visualstudio": "2.0.16",

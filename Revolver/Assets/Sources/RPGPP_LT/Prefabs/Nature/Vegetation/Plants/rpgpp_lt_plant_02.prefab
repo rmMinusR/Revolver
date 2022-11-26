@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4880192959135794}
   - component: {fileID: 33924393318104796}
   - component: {fileID: 23734148740911494}
+  - component: {fileID: 5261544829615927352}
   m_Layer: 0
   m_Name: rpgpp_lt_plant_02
   m_TagString: Untagged
@@ -83,3 +84,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!205 &5261544829615927352
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998486184958212}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.09649402, y: 0.21291575, z: -0.06302273}
+  m_Size: 1.1696795
+  m_FadeMode: 1
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.05
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23734148740911494}
+  m_Enabled: 1

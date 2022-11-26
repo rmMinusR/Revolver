@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4383882971595202}
   - component: {fileID: 33843464718874480}
   - component: {fileID: 23060349023441154}
+  - component: {fileID: 5912553288137907481}
   m_Layer: 0
   m_Name: rpgpp_lt_rocks_tiny_01
   m_TagString: Untagged
@@ -83,3 +84,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!205 &5912553288137907481
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187590036259114}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.013462305, y: 0.072605155, z: 0.010871649}
+  m_Size: 2.7596798
+  m_FadeMode: 1
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.05
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23060349023441154}
+  m_Enabled: 1

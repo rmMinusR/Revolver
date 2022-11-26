@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 33583730029358272}
   - component: {fileID: 23009263249696568}
   - component: {fileID: 3375694011446469542}
+  - component: {fileID: -3061585941704428542}
+  - component: {fileID: 6010030606755062930}
+  - component: {fileID: 6296307428323974280}
   m_Layer: 0
   m_Name: rpgpp_lt_tree_pine_01
   m_TagString: Untagged
@@ -100,3 +103,49 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: -0.18, y: 3.7220001, z: -0.52}
   m_TimeToStationary: 0.5
+--- !u!205 &-3061585941704428542
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369031296425274}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 1
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.05
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23009263249696568}
+  m_Enabled: 1
+--- !u!65 &6010030606755062930
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369031296425274}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8, y: 7.444, z: 0.8}
+  m_Center: {x: -0.18, y: 3.722, z: -0.52}
+--- !u!114 &6296307428323974280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369031296425274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c79df54bd34dfa46bf08fb3b29d7615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  mainCollider: {fileID: 0}

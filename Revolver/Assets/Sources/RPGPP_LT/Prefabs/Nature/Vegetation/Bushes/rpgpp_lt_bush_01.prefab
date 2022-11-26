@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33365095013711854}
   - component: {fileID: 23591785733628720}
   - component: {fileID: -3178896681627957125}
+  - component: {fileID: 1258582628839734365}
   m_Layer: 0
   m_Name: rpgpp_lt_bush_01
   m_TagString: Untagged
@@ -100,3 +101,22 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.034, y: 1.3390001, z: -0.002}
   m_TimeToStationary: 0.5
+--- !u!205 &1258582628839734365
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783979763778466}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.033952475, y: 1.3387955, z: -0.0022066832}
+  m_Size: 2.6880705
+  m_FadeMode: 1
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.05
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23591785733628720}
+  m_Enabled: 1

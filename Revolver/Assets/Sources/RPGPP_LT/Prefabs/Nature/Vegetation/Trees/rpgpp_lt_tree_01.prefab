@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 33222949445572694}
   - component: {fileID: 23050206849376476}
   - component: {fileID: 2908983874478294259}
+  - component: {fileID: 6860260795832588754}
+  - component: {fileID: 5211555894843306856}
+  - component: {fileID: 2167627878614019797}
   m_Layer: 0
   m_Name: rpgpp_lt_tree_01
   m_TagString: Untagged
@@ -100,3 +103,49 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 3.7220001, z: 0}
   m_TimeToStationary: 0.5
+--- !u!205 &6860260795832588754
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612273161005096}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.3324895, y: 3.722106, z: -0.40507376}
+  m_Size: 7.444212
+  m_FadeMode: 1
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.05
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23050206849376476}
+  m_Enabled: 1
+--- !u!65 &5211555894843306856
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612273161005096}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8, y: 7.444, z: 0.8}
+  m_Center: {x: 0, y: 3.722, z: 0}
+--- !u!114 &2167627878614019797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612273161005096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c79df54bd34dfa46bf08fb3b29d7615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  mainCollider: {fileID: 0}

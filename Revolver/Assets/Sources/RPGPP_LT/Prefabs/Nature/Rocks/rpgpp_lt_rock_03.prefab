@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 23769478158867138}
   - component: {fileID: 3334876157679896601}
   - component: {fileID: 7156232217522543385}
+  - component: {fileID: -8230857022373727391}
+  - component: {fileID: 7500317981299240017}
   m_Layer: 0
   m_Name: rpgpp_lt_rock_03
   m_TagString: Untagged
@@ -115,3 +117,36 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.034, y: -0.014, z: -0.11800001}
   m_TimeToStationary: 0.5
+--- !u!114 &-8230857022373727391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553163231892768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c79df54bd34dfa46bf08fb3b29d7615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  mainCollider: {fileID: 0}
+--- !u!205 &7500317981299240017
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553163231892768}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.034115314, y: -0.013772607, z: -0.11796069}
+  m_Size: 3.0224223
+  m_FadeMode: 1
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.05
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23769478158867138}
+  m_Enabled: 1
