@@ -35,6 +35,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 501425886519677580}
   - {fileID: 501425886256472016}
@@ -98,7 +99,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5dbf21a5f90de04db329e25de94fd7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionCount: 0
+  staticCollisionCount: 0
+  dynamicCollisionCount: 0
+  score: 0
+  collisionPenalty: 10
+  neighborCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  passiveGain: 0.2
   markCooldown: 0.5
   nextTimeMarkable: 0
 --- !u!114 &501425884862704603
@@ -133,7 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 667b253d68d22d94fbd96c6315cd939e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entries:
+  lastKnownEntryCount: -1
+  __entries:
   - sourceAngle: 0
     direction: {x: 0, y: 0, z: 0}
     value: 0
@@ -158,7 +188,31 @@ MonoBehaviour:
   - sourceAngle: 0
     direction: {x: 0, y: 0, z: 0}
     value: 0
-  host: {fileID: 501425884862704603}
+  - sourceAngle: 0
+    direction: {x: 0, y: 0, z: 0}
+    value: 0
+  - sourceAngle: 0
+    direction: {x: 0, y: 0, z: 0}
+    value: 0
+  - sourceAngle: 0
+    direction: {x: 0, y: 0, z: 0}
+    value: 0
+  - sourceAngle: 0
+    direction: {x: 0, y: 0, z: 0}
+    value: 0
+  - sourceAngle: 0
+    direction: {x: 0, y: 0, z: 0}
+    value: 0
+  - sourceAngle: 0
+    direction: {x: 0, y: 0, z: 0}
+    value: 0
+  - sourceAngle: 0
+    direction: {x: 0, y: 0, z: 0}
+    value: 0
+  - sourceAngle: 0
+    direction: {x: 0, y: 0, z: 0}
+    value: 0
+  enableGizmos: 0
 --- !u!114 &6725990145864562416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,10 +226,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shapingFunction:
-    id: 0
-  avoidWeight: 3
+    rid: 3384040114977243141
+  weight: -1
+  clampValues: 1
   avoidRange: 3.5
-  avoidShapeFunc:
+  falloffCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
@@ -199,10 +254,16 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  normalizeValues: 0
   references:
-    version: 1
-    00000000:
-      type: {class: , ns: , asm: }
+    version: 2
+    RefIds:
+    - rid: 3384040114977243141
+      type: {class: CircularShape, ns: , asm: Assembly-CSharp}
+      data:
+        bias: 0
+        min: -1
+        max: 1
 --- !u!114 &5626043403333013028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,36 +277,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shapingFunction:
-    id: 0
-  currentHeadingWeight: 0.3
-  currentHeadingShapeFunc:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: -1
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -1
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+    rid: 3384040114977243136
+  weight: 1
+  clampValues: 1
   references:
-    version: 1
-    00000000:
-      type: {class: , ns: , asm: }
+    version: 2
+    RefIds:
+    - rid: 3384040114977243136
+      type: {class: ManualShape, ns: , asm: Assembly-CSharp}
+      data:
+        shape:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 136
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 180
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 136
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
 --- !u!114 &6903763691256559437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,8 +323,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shapingFunction:
-    id: 0
-  wanderWeight: 1
+    rid: 3384040114977243137
+  weight: 1
+  clampValues: 1
   wanderDirectionNoiseGenerator:
     mSeed: 1337
     mFrequency: 0.1
@@ -281,9 +346,44 @@ MonoBehaviour:
     mWarpTransformType3D: 3
     mDomainWarpAmp: 1
   references:
-    version: 1
-    00000000:
-      type: {class: , ns: , asm: }
+    version: 2
+    RefIds:
+    - rid: 3384040114977243137
+      type: {class: ManualShape, ns: , asm: Assembly-CSharp}
+      data:
+        shape:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 136
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 20
+            value: 0.3
+            inSlope: -0.0055555557
+            outSlope: -0.0055555557
+            tangentMode: 136
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 180
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 136
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
 --- !u!1 &501425886256472017
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,6 +412,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 501425884862704601}
   m_RootOrder: 1
@@ -343,6 +444,7 @@ LineRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 0
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
@@ -459,6 +561,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 501425884862704601}
   m_RootOrder: 0
@@ -482,6 +585,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -554,6 +658,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 259552714315015850}
   m_RootOrder: 0
@@ -635,6 +740,7 @@ RectTransform:
   m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
   m_LocalPosition: {x: 0, y: 0, z: -1.27}
   m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2483181985715652594}
   m_Father: {fileID: 501425884862704601}
