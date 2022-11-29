@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3249972754716938173}
   - component: {fileID: 8883047379008612709}
   m_Layer: 0
-  m_Name: Shell base
+  m_Name: Acid shell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 0}
-  onFiredPrefab: {fileID: 7321755617811689431, guid: 077a1b632e9a5494eb8fa7980acf83ab, type: 3}
+  onFiredPrefab: {fileID: 7321755617811689431, guid: 1002743e8f3eb574cb3ec3e3d24cc654, type: 3}
 --- !u!1 &8933620863406407584
 GameObject:
   m_ObjectHideFlags: 0

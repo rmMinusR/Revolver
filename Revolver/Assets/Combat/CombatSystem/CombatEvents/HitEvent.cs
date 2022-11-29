@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Combat
 {
@@ -10,16 +11,16 @@ namespace Combat
         public readonly ICombatTarget target;
         public readonly ICombatEffect damagingEffect;
 
-        public readonly float originalDamage;
-        public float damage;
+        public readonly IReadOnlyList<Damage> originalEffects;
+        public List<Damage> effects;
 
-        internal HitEvent(ICombatAffector source, ICombatTarget target, ICombatEffect damagingEffect, float damage) : base(source)
+        internal HitEvent(ICombatAffector source, ICombatTarget target, ICombatEffect damagingEffect, IEnumerable<Damage> effects) : base(source)
         {
             this.target = target;
             this.damagingEffect = damagingEffect;
 
-            this.originalDamage = damage;
-            this.damage = damage;
+            this.effects = new List<Damage>(effects);
+            this.originalEffects = new List<Damage>(this.effects);
         }
     }
 }

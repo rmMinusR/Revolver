@@ -24,7 +24,7 @@ namespace Combat
         [SerializeField] private List<GameObject> hitRecord;
 
         [Header("Effects")]
-        [SerializeField] [Min(0)] private float damage = 1;
+        [SerializeField] private List<Damage> effects;
 
         private void OnEnable()
         {
@@ -44,6 +44,6 @@ namespace Combat
             }
         }
 
-        public void Apply(ICombatTarget target) => CombatAPI.Hit(GetSource(), target, this, damage);
+        public void Apply(ICombatTarget target) => CombatAPI.Hit(GetSource(), target, this, effects);
     }
 }

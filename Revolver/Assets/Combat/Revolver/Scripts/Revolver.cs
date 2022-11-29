@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Combat;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public sealed class Revolver : MonoBehaviour
 {
+    public CombatantEntity owner;
+
     [Header("Components")]
     public HammerDriver hammer;
     public TriggerDriver trigger;

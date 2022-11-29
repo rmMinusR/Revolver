@@ -8,7 +8,7 @@ namespace Combat
     /// <summary>
     /// Implements most basic functions needed to participate in combat
     /// </summary>
-    public abstract class CombatantEntity : ScopedListener, ICombatTarget, ICombatAffector
+    public class CombatantEntity : ScopedListener, ICombatTarget, ICombatAffector
     {
         [SerializeField] protected float health;
         [SerializeField] protected float maxHealth;
@@ -76,6 +76,26 @@ namespace Combat
             foreach(SentimentOverride i in overrides) if(i.combatant == (UnityEngine.Object)other) return i.sentiment;
             return Sentiment.Passive;
         }
+
+
+        #region Fast lookup
+
+        public static IReadOnlyCollection<CombatantEntity> Instances => __Instances;
+        private static HashSet<CombatantEntity> __Instances;
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            __Instances.Add(this);
+        }
+
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            __Instances.Remove(this);
+        }
+
+        #endregion
     }
 
 }

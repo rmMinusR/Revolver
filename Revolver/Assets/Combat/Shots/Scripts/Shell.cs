@@ -11,7 +11,8 @@ public sealed class Shell : SparkReciever
     {
         Revolver revolver = GetComponentInParent<Revolver>();
 
-        Instantiate(onFiredPrefab, revolver.bulletOrigin.position, revolver.bulletOrigin.rotation);
+        FiredShot shot = Instantiate(onFiredPrefab, revolver.bulletOrigin.position, revolver.bulletOrigin.rotation);
+        shot.SetSource(revolver.owner);
         onFiredPrefab = null;
     }
 }

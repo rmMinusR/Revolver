@@ -1,4 +1,6 @@
 ﻿using Events;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Combat
 {
@@ -7,12 +9,12 @@ namespace Combat
         /// <summary>
         /// Deals damage, but may do more in future, such as crowd control and status effects.
         /// </summary>
-        public static void Hit(ICombatAffector from, ICombatTarget to, ICombatEffect how, float damage)
+        public static void Hit(ICombatAffector from, ICombatTarget to, ICombatEffect how, IEnumerable<Damage> effects)
         {
-            HitEvent ev = new HitEvent(from, to, how, damage);
+            HitEvent ev = new HitEvent(from, to, how, effects);
             EventAPI.Dispatch(ev);
 
-            if (!ev.isCancelled) to.DirectApplyDamage(ev.damage, from, how);
+            if (!ev.isCancelled) to.DirectApplyDamage(ev.effects.Sum(e => e.damageAmount), from, how);
         }
 
         /// <summary>

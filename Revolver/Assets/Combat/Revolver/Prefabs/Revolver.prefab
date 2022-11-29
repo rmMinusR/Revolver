@@ -1015,8 +1015,16 @@ MonoBehaviour:
   loadables:
   - position: {x: 0, y: 1}
     prefab: {fileID: 8883047379008612709, guid: dae7862e94affed4fa95169c3a544998, type: 3}
-    icon: {fileID: 21300000, guid: 7a3846efa89e52544a15f63f0c969065, type: 3}
-    name: Basic
+    icon: {fileID: 21300000, guid: 60450deef8267d04eb753fa7a2a9a844, type: 3}
+    name: Fire
+  - position: {x: -0.7, y: 0.7}
+    prefab: {fileID: 8883047379008612709, guid: 9eb723e3dc15b6e49a58e53b554ecc44, type: 3}
+    icon: {fileID: 21300000, guid: 9e83928ce50707a40ad2cef81a652415, type: 3}
+    name: Acid
+  - position: {x: 0.7, y: 0.7}
+    prefab: {fileID: 8883047379008612709, guid: 757760f75cf26e74a8153d14b38a6681, type: 3}
+    icon: {fileID: 21300000, guid: 3275b1d29ff038c41a02e94a63541590, type: 3}
+    name: Shock
 --- !u!1 &7036518584712912381
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,9 +14,6 @@ namespace Combat
     public enum Group
     {
         PlayerCharacter   = 1 << 0,
-        PlayerLantern     = 1 << 1,
-        PlayerTurret      = 1 << 2,
-        PlayerStructure   = 1 << 3,
         AttackerCharacter = 1 << 8
     }
 

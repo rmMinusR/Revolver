@@ -73,6 +73,31 @@ public static class CollectionExt
 
         return bestData;
     }
+
+    /// <summary>
+    /// Find the best-fit based on the given function. Lower values win.
+    /// </summary>
+    public static TData MinBy<TData>(this IEnumerable<TData> coll, Func<TData, float> evaluator)
+    {
+        TData bestData = default;
+        float bestVal = float.MinValue;
+        bool hasVal = false;
+
+        foreach(TData i in coll)
+        {
+            float iVal = evaluator(i);
+            if (!hasVal || iVal < bestVal)
+            {
+                bestData = i;
+                bestVal = iVal;
+                hasVal = true;
+            }
+        }
+
+        if (!hasVal) throw new InvalidOperationException("No values!");
+
+        return bestData;
+    }
 }
 
 /// <summary>
