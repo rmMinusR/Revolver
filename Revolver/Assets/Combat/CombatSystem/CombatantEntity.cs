@@ -76,26 +76,6 @@ namespace Combat
             foreach(SentimentOverride i in overrides) if(i.combatant == (UnityEngine.Object)other) return i.sentiment;
             return Sentiment.Passive;
         }
-
-
-        #region Fast lookup
-
-        public static IReadOnlyCollection<CombatantEntity> Instances => __Instances;
-        private static HashSet<CombatantEntity> __Instances;
-
-        protected override void OnEnable()
-        {
-            base.OnEnable();
-            __Instances.Add(this);
-        }
-
-        protected override void OnDisable()
-        {
-            base.OnDisable();
-            __Instances.Remove(this);
-        }
-
-        #endregion
     }
 
 }

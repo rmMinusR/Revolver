@@ -371,7 +371,7 @@ GameObject:
   - component: {fileID: 8478472242769873498}
   - component: {fileID: 6196042928372670212}
   - component: {fileID: 2811764024710231771}
-  m_Layer: 7
+  m_Layer: 5
   m_Name: Load UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -654,6 +654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0778d2e4e3f6ea64d8bcb4cff03398b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owner: {fileID: 0}
   hammer: {fileID: 8490843206186071084}
   trigger: {fileID: 2048276592872301783}
   cylinderState: {fileID: 6455563512217030928}
@@ -1255,6 +1256,8 @@ MonoBehaviour:
   locked: 1
   lockAngle: 0.6
   returnForce: 150
+  lockHapticAmp: 1
+  lockHapticDur: 0.05
   sparkThreshold: 3.5
   sparkEmitter: {fileID: 8190751293549214771}
 --- !u!1 &9079116825982698677

@@ -69,7 +69,7 @@ public static class CollectionExt
             }
         }
 
-        if (!hasVal) throw new InvalidOperationException("No values!");
+        //if (!hasVal) throw new InvalidOperationException("No values!");
 
         return bestData;
     }
@@ -94,7 +94,7 @@ public static class CollectionExt
             }
         }
 
-        if (!hasVal) throw new InvalidOperationException("No values!");
+        //if (!hasVal) throw new InvalidOperationException("No values!");
 
         return bestData;
     }

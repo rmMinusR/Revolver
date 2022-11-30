@@ -47,6 +47,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slot: {fileID: 0}
   onFiredPrefab: {fileID: 7321755617811689431, guid: 077a1b632e9a5494eb8fa7980acf83ab, type: 3}
+  hasFired: 0
+  fireHapticAmp: 0.8
+  fireHapticDur: 0.1
 --- !u!1 &8933620863406407584
 GameObject:
   m_ObjectHideFlags: 0

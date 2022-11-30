@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.XR.OpenXR.Input;
 
 public sealed class HammerDriver : MonoBehaviour
 {
@@ -17,7 +18,11 @@ public sealed class HammerDriver : MonoBehaviour
     private float hammerLoc = 0;
     private float hammerVel = 0;
 
-    [Header("Sparks")]
+    [Header("Lock feedback")]
+    [SerializeField] [Min(0)] private float lockHapticAmp = 1;
+    [SerializeField] [Min(0)] private float lockHapticDur = 1;
+
+    [Header("Impact feedback")]
     [SerializeField] [Min(0)] private float sparkThreshold = 0.3f;
     [SerializeField] private SparkEmitter sparkEmitter;
 
@@ -40,6 +45,7 @@ public sealed class HammerDriver : MonoBehaviour
             {
                 locked = true;
                 if (!revolver.cylinderPopout.IsOut) revolver.cylinderState.AdvanceCylinder();
+                OpenXRInput.SendHapticImpulse(revolver.haptics.action, lockHapticAmp, lockHapticDur);
             }
         }
         

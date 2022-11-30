@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(TimedDestroy))]
 public class DamageNumberDriver : MonoBehaviour
 {
+    [SerializeField] private TMP_Text text;
     [SerializeField] private Vector3 riseRate;
 
-    [Space]
-    [SerializeField] private float totalStoredDamage;
-    [SerializeField] private Color averagedColor;
+    private float totalStoredDamage;
+    private Color averagedColor;
 
     [Header("Damage color presets")]
     [SerializeField] private Color neutralColor = Color.white;
@@ -30,6 +31,8 @@ public class DamageNumberDriver : MonoBehaviour
 
         totalStoredDamage += damage.damageAmount;
         averagedColor = Color.Lerp(averagedColor, damageColor, damage.damageAmount/totalStoredDamage);
+
+        text.color = averagedColor;
     }
 
     void Update()
