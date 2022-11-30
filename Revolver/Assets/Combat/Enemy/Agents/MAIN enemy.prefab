@@ -412,8 +412,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57111fd2bb0499549aedf9a385ed1e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  maxHealth: 100
+  health: 30
+  maxHealth: 30
   isAlive: 1
   alignment: 256
   hostileMask: 1

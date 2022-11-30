@@ -4,7 +4,7 @@ using UnityEngine;
 
 public sealed class TimedDestroy : MonoBehaviour
 {
-    [SerializeField] [Min(0)] private float timeToLive = 2;
+    [Min(0)] public float timeToLive = 2;
 
     private void Update()
     {

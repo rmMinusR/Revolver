@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(FlickGestureRecognizer))]
 public sealed class Revolver : MonoBehaviour
 {
     public CombatantEntity owner;
 
     [Header("Components")]
+    public FlickGestureRecognizer flick;
     public HammerDriver hammer;
     public TriggerDriver trigger;
     public CylinderState cylinderState;

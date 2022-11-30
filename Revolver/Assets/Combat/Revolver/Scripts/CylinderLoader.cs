@@ -18,6 +18,7 @@ public sealed class CylinderLoader : MonoBehaviour
     [SerializeField] private Transform uiRoot;
     [SerializeField] private LoadableUI loadableUiPrefab;
 
+
     [Space]
     [SerializeField] [Min(0)] private float deadZone = 0.2f;
     [SerializeField] private Vector2 neutralPos = new Vector2(0.5f, 0.5f);

@@ -5,13 +5,34 @@ using UnityEngine;
 
 public sealed class CylinderState : MonoBehaviour
 {
+    private Revolver revolver;
+
     private List<ShellSlot> slots;
     [SerializeField] private Transform visual;
     [SerializeField] [Min(0)] private float rotateDuration = 0.3f;
 
+    [Space]
+    [SerializeField] FlickGestureRecognizer.Gesture flickUnload;
+    [SerializeField][Range(0, 1)] private float unloadFailChance = 0.1f;
+
     private void Start()
     {
         slots = new List<ShellSlot>(GetComponentsInChildren<ShellSlot>());
+
+        revolver = GetComponentInParent<Revolver>();
+        flickUnload.OnPerformed += revolver.cylinderState.TryUnload;
+    }
+
+    internal void TryUnload()
+    {
+        if (revolver.cylinderPopout.IsOut)
+        {
+            foreach (ShellSlot slot in slots)
+            {
+                if (UnityEngine.Random.value > unloadFailChance) slot.Unload();
+            }
+        }
+
     }
 
     public void Load(Shell bulletPrefab)

@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c771e6adeeff874685a739e39c7df99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unloadScatter: 0.8
   dbgLoad: {fileID: 0}
 --- !u!1 &312666163941759951
 GameObject:
@@ -153,6 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c771e6adeeff874685a739e39c7df99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unloadScatter: 0.8
   dbgLoad: {fileID: 0}
 --- !u!1 &2317395430369884756
 GameObject:
@@ -327,6 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c771e6adeeff874685a739e39c7df99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unloadScatter: 0.8
   dbgLoad: {fileID: 0}
 --- !u!1 &3785533212227528056
 GameObject:
@@ -472,6 +475,7 @@ GameObject:
   - component: {fileID: 7355246428011017367}
   - component: {fileID: 2048276592872301783}
   - component: {fileID: 2330858783299170686}
+  - component: {fileID: 6455492381734152630}
   m_Layer: 0
   m_Name: Revolver
   m_TagString: Untagged
@@ -655,6 +659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
+  flick: {fileID: 6455492381734152630}
   hammer: {fileID: 8490843206186071084}
   trigger: {fileID: 2048276592872301783}
   cylinderState: {fileID: 6455563512217030928}
@@ -667,6 +672,21 @@ MonoBehaviour:
   triggerControl: {fileID: -5684558904543120851, guid: e0ca4504471ca124088e1e2cfe6804ae, type: 3}
   loaderControl: {fileID: 3396702884570900202, guid: e0ca4504471ca124088e1e2cfe6804ae, type: 3}
   haptics: {fileID: 2975796035989916654, guid: e0ca4504471ca124088e1e2cfe6804ae, type: 3}
+--- !u!114 &6455492381734152630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4302573236825987127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53c2530d3b42ec84d93af17d50f7cc06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  historyLength: 5
+  gestures: []
+  cooldown: 0.3
 --- !u!1 &4483489867625962468
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,6 +820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c771e6adeeff874685a739e39c7df99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unloadScatter: 0.8
   dbgLoad: {fileID: 0}
 --- !u!1 &5202334896607545234
 GameObject:
@@ -980,6 +1001,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visual: {fileID: 5384274251599385567}
   rotateDuration: 0.15
+  flickUnload:
+    linear: {x: 0, y: 0.9, z: -0.2}
+    deadZone: 0.02
+  unloadFailChance: 0.1
 --- !u!114 &2972288832958438476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -993,10 +1018,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pivot: {fileID: 7520347707863257938}
-  centerOfMass: {fileID: 5384274251599385567}
+  flickOut:
+    linear: {x: -1, y: 0, z: 0}
+    deadZone: 0.02
+  flickIn:
+    linear: {x: 1, y: 0, z: 0}
+    deadZone: 0.02
   popoutAngle: 60
-  returnForce: 35
-  motionInfluence: -1000
 --- !u!114 &5219301871289312234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1116,6 +1144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c771e6adeeff874685a739e39c7df99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unloadScatter: 0.8
   dbgLoad: {fileID: 0}
 --- !u!1 &7553000513819180700
 GameObject:
@@ -1304,4 +1333,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c771e6adeeff874685a739e39c7df99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unloadScatter: 0.8
   dbgLoad: {fileID: 0}

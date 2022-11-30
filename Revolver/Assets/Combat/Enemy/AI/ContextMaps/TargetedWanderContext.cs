@@ -14,7 +14,7 @@ public class TargetedWanderContext : IContextProvider
             for (int i = 0; i < entries.Length; ++i)
             {
                 Vector3 toAnchor = currentTarget.Value - ContextMap.Host.transform.position;
-                toAnchor.y = 0;
+                toAnchor.y = ContextMap.Host.transform.position.y;
                 float distToAnchor = toAnchor.magnitude;
                 float angleToAnchor = Vector3.Angle(toAnchor, entries[i].direction) * Mathf.Deg2Rad;
                 entries[i].value += shapingFunction.Evaluate(angleToAnchor) * Mathf.Max(0, distToAnchor-deadZone)*weight;

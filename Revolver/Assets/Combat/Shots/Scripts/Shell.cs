@@ -7,6 +7,7 @@ public sealed class Shell : SparkReciever
 {
     [SerializeField] internal ShellSlot slot;
     [SerializeField] private FiredShot onFiredPrefab;
+    [Min(0)] public float casingPersistTime = 3;
 
     public bool hasFired = false;
 

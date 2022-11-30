@@ -17,6 +17,24 @@ public sealed class ShellSlot : MonoBehaviour
         contents.transform.localScale = Vector3.one;
     }
 
+    [SerializeField] [Min(0)] private float unloadScatter = 0.5f;
+
+    public void Unload()
+    {
+        if (contents)
+        {
+            contents.transform.parent = null;
+
+            contents.gameObject.AddComponent<Rigidbody>().velocity += Random.insideUnitSphere * unloadScatter;
+            contents.gameObject.AddComponent<MeshCollider>().convex = true;
+
+            TimedDestroy destroyer = contents.gameObject.AddComponent<TimedDestroy>();
+            destroyer.timeToLive = contents.casingPersistTime;
+
+            contents = null;
+        }
+    }
+
 #if UNITY_EDITOR
     [SerializeField] private Shell dbgLoad;
     private void Update()

@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slot: {fileID: 0}
   onFiredPrefab: {fileID: 7321755617811689431, guid: 25e7245b62216684cb231b17a79ee71f, type: 3}
+  casingPersistTime: 3
   hasFired: 0
   fireHapticAmp: 0.8
   fireHapticDur: 0.1
@@ -111,7 +112,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c371cc3e578acd94ab43ed431e87706a, type: 2}
+  - {fileID: 2100000, guid: b81b9dab2246902489be994675441771, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
