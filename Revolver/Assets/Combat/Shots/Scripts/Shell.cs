@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.XR.OpenXR.Input;
 
@@ -23,6 +24,7 @@ public sealed class Shell : SparkReciever
 
             FiredShot shot = Instantiate(onFiredPrefab, revolver.bulletOrigin.position, revolver.bulletOrigin.rotation);
             shot.SetSource(revolver.owner);
+            shot.isEmpowered = revolver ? revolver.cylinderState.Slots.Count(i => i.contents != null && !i.contents.hasFired) == 1 : false; //Empower if this is the last shot
             hasFired = true;
 
             OpenXRInput.SendHapticImpulse(revolver.haptics.action, fireHapticAmp, fireHapticDur);

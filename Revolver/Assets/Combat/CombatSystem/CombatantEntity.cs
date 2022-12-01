@@ -72,7 +72,7 @@ namespace Combat
 
         public virtual Sentiment GetSentimentTowards(ICombatTarget other)
         {
-            if ((other.GetAlignment() & hostileMask) != 0) return Sentiment.Enemy;
+            if ((other.GetAlignment() & hostileMask) != 0) return Sentiment.Hostile;
             foreach(SentimentOverride i in overrides) if(i.combatant == (UnityEngine.Object)other) return i.sentiment;
             return Sentiment.Passive;
         }

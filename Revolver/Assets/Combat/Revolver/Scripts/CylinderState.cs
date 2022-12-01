@@ -8,6 +8,7 @@ public sealed class CylinderState : MonoBehaviour
     private Revolver revolver;
 
     private List<ShellSlot> slots;
+    public IReadOnlyList<ShellSlot> Slots => slots;
     [SerializeField] private Transform visual;
     [SerializeField] [Min(0)] private float rotateDuration = 0.3f;
 

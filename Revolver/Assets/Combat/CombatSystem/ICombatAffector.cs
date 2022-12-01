@@ -19,9 +19,9 @@ namespace Combat
 
     public enum Sentiment
     {
-        Passive, //No interaction
-        Ally,    //Can target with buffs
-        Enemy    //Can target with damage
+        Passive,  //No interaction
+        Friendly, //Can target with buffs
+        Hostile   //Can target with damage
     }
 
 }

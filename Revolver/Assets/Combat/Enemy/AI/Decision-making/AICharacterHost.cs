@@ -27,7 +27,7 @@ public sealed class AICharacterHost : MonoBehaviour
 
     private void AggroOnPlayer(Sensable s)
     {
-        if (s.TryGetComponent(out ICombatTarget t) && combat.GetSentimentTowards(t) == Sentiment.Enemy)
+        if (s.TryGetComponent(out ICombatTarget t) && combat.GetSentimentTowards(t) == Sentiment.Hostile)
         {
             attackTarget = t;
         }

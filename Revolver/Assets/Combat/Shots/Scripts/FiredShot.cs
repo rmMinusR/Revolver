@@ -19,14 +19,16 @@ public class FiredShot : MonoBehaviour, ICombatEffect
 
     private LineRenderer trail;
 
+    [InspectorReadOnly] public bool isEmpowered = false;
+
     private void Start()
     {
-        bool good = Physics.Raycast(transform.position, transform.forward, out hit);
-        if (good) target = hit.collider.GetComponentInParent<ICombatTarget>();
-        good &= target != null;
+        bool directHit = Physics.Raycast(transform.position, transform.forward, out hit);
+        if (directHit) target = hit.collider.GetComponentInParent<ICombatTarget>();
+        directHit &= target != null;
 
         //If we didn't hit anything, try to lock onto nearest target
-        if (!good)
+        if (!directHit)
         {
             float minAngle = float.PositiveInfinity;
             foreach (CombatantEntity e in FindObjectsOfType<CombatantEntity>()) //TODO how to work with breakables?
@@ -45,16 +47,24 @@ public class FiredShot : MonoBehaviour, ICombatEffect
             //Redo raycast to make sure we can hit it
             else if (!Physics.Raycast(transform.position, ((Component)target).transform.position-transform.position, out hit)) target = null;
         }
-        
-        lingerTimeRemaining = lingerTime;
+
+        //Ensure good hit location, even if firing at the air
+        if (hit.collider == null) hit.point = transform.position + transform.forward * 100;
 
         //Setup trail
+        lingerTimeRemaining = lingerTime;
         trail = GetComponent<LineRenderer>();
         if (trail) trail.SetPosition(0, transform.position);
-        if (trail) trail.SetPosition(1, hit.collider ? hit.point : transform.position+transform.forward*100);
+        if (trail) trail.SetPosition(1, hit.point);
 
         //Apply damage
-        if (target != null && __source.GetSentimentTowards(target) != Sentiment.Ally) Apply(target);
+        if (target != null && __source.GetSentimentTowards(target) != Sentiment.Friendly) Apply(target);
+
+        //Apply empowered effects
+        if (isEmpowered)
+        {
+            foreach (EmpoweredShotEffect e in GetComponents<EmpoweredShotEffect>()) e.Hit(GetSource(), target, hit);
+        }
     }
 
     private ICombatAffector __source;
