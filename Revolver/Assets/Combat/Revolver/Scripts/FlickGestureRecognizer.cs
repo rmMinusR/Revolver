@@ -7,7 +7,17 @@ using UnityEngine;
 public sealed class FlickGestureRecognizer : MonoBehaviour
 {
     [SerializeField] [Min(1)] private int historyLength = 5;
-    private List<Vector3> motionHistory = new List<Vector3>(); //0 is oldest, len-1 is most recent
+
+    [Serializable]
+    public struct Frame
+    {
+        public float time;
+
+        //Both of these are in RELATIVE space
+        public Vector3 instantVel;
+        public Vector3 instantAccel;
+    }
+    private List<Frame> motionHistory = new List<Frame>(); //0 is oldest, len-1 is most recent
 
     private Vector3 lastPos;
 
@@ -22,12 +32,26 @@ public sealed class FlickGestureRecognizer : MonoBehaviour
 
     private void Update()
     {
-        //Read input
-        Vector3 instantaneousMotionGlobal = transform.position - lastPos;
-        lastPos = transform.position;
-        motionHistory.Add(transform.worldToLocalMatrix.MultiplyVector(instantaneousMotionGlobal));
+        Frame? prevFrame = motionHistory.Count != 0 ? motionHistory[motionHistory.Count-1] : null; //Helper
 
+        //Read input
+        Frame frame = new Frame();
+        frame.time = Time.unscaledTime;
+        frame.instantVel = transform.worldToLocalMatrix.MultiplyVector( transform.position - lastPos );
+        if (prevFrame.HasValue) frame.instantAccel = frame.instantVel - prevFrame.Value.instantVel;
+
+        //Normalize for delta time
+        if (prevFrame.HasValue)
+        {
+            float dtNrm = frame.time-prevFrame.Value.time;
+            frame.instantVel /= dtNrm;
+            frame.instantAccel /= dtNrm;
+        }
+
+        //Upkeep
+        motionHistory.Add(frame);
         while (motionHistory.Count > historyLength) motionHistory.RemoveAt(0);
+        lastPos = transform.position;
 
         //Attempt to recognize gestures
         if (cooldownRemaining > 0) cooldownRemaining -= Time.deltaTime;
@@ -47,28 +71,51 @@ public sealed class FlickGestureRecognizer : MonoBehaviour
     {
         [SerializeField] private Vector3 linear;
         [SerializeField] [Min(0)] private float deadZone = 0.05f;
+        //[SerializeField] [Min(0)] private float accelDeadZone = 0.05f;
+        [SerializeField] [Min(0)] private float deadZonePenalty = 1;
+        [SerializeField] [Range(0, 1)] private float velVsAccel = 0.5f;
 
         public event Action OnPerformed;
         public void Perform() => OnPerformed?.Invoke();
 
-        public bool IsValid(List<Vector3> inputs) => inputs.All(i => i.magnitude > deadZone);
+        public bool IsValid(List<Frame> inputs) => inputs.All(i => i.instantVel.magnitude > deadZone);
 
-        public float Eval(List<Vector3> inputs)
+        public float Eval(List<Frame> inputs)
+        {
+            return inputs.Sum(
+                i => i.instantVel.magnitude > deadZone
+                    ? Mathf.Lerp(Vector3.Angle(linear, i.instantVel), Vector3.Angle(linear, i.instantAccel), velVsAccel)
+                    : deadZonePenalty
+            );
+        }
+
+        /*
+        public float Eval(List<Frame> inputs)
         {
             float val = 0;
-
-            Vector3 linear = this.linear.normalized;
-            for (int i = 0; i < inputs.Count; ++i) inputs[i].Normalize();
-
-            for (int i = 0; i < inputs.Count; ++i)
+            
+            foreach (Frame i in inputs)
             {
-                Vector3 effectiveInput = inputs[i];
-                if (effectiveInput.sqrMagnitude > linear.sqrMagnitude) effectiveInput = effectiveInput.normalized * linear.magnitude;
-                
-                if (effectiveInput.magnitude > deadZone) val += Vector3.Distance(effectiveInput, linear) / 180;
+                if (i.instantVel.magnitude > deadZone && i.instantAccel.magnitude > accelDeadZone)
+                {
+                    i.instantVel.Normalize();
+                    i.instantAccel.Normalize();
+
+                    val += Mathf.Lerp(
+                        Vector3.Distance(i.instantVel, linear),
+                        Vector3.Distance(i.instantAccel, linear),
+                        velVsAccel
+                    );
+                }
+                else
+                {
+                    val += deadZonePenalty;
+                }
+
             }
 
             return val;
         }
+        */
     }
 }
