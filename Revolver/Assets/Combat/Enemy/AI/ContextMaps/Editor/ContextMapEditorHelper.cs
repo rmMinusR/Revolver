@@ -34,7 +34,7 @@ public abstract class ContextMapEditorHelper : Editor
 
     public override bool RequiresConstantRepaint() => Application.isPlaying;
 
-    protected static void RenderPreview(RenderTexture renderTarget, Material lineDrawMat, ContextMapSteering.Entry[] entries, CharacterHost host)
+    protected static void RenderPreview(RenderTexture renderTarget, Material lineDrawMat, ContextMapSteering.Entry[] entries, CharacterMovementHost host)
     {
         //CommandBuffer gpu = new CommandBuffer();
         //gpu.ClearRenderTarget()

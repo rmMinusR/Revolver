@@ -295,6 +295,10 @@ PrefabInstance:
       propertyPath: anchor
       value: 
       objectReference: {fileID: 1973642263}
+    - target: {fileID: 5242972914898908422, guid: 6e280538d3f23794dbe66de0a59474e0, type: 3}
+      propertyPath: anchor
+      value: 
+      objectReference: {fileID: 1973642263}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e280538d3f23794dbe66de0a59474e0, type: 3}
 --- !u!4 &193335130 stripped
@@ -362,6 +366,10 @@ PrefabInstance:
       value: MAIN enemy (2)
       objectReference: {fileID: 0}
     - target: {fileID: 950641781787318351, guid: 6e280538d3f23794dbe66de0a59474e0, type: 3}
+      propertyPath: anchor
+      value: 
+      objectReference: {fileID: 826295799}
+    - target: {fileID: 5242972914898908422, guid: 6e280538d3f23794dbe66de0a59474e0, type: 3}
       propertyPath: anchor
       value: 
       objectReference: {fileID: 826295799}
@@ -435,6 +443,10 @@ PrefabInstance:
       propertyPath: anchor
       value: 
       objectReference: {fileID: 826295799}
+    - target: {fileID: 5242972914898908422, guid: 6e280538d3f23794dbe66de0a59474e0, type: 3}
+      propertyPath: anchor
+      value: 
+      objectReference: {fileID: 826295799}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e280538d3f23794dbe66de0a59474e0, type: 3}
 --- !u!4 &533711670 stripped
@@ -502,6 +514,10 @@ PrefabInstance:
       value: MAIN enemy (3)
       objectReference: {fileID: 0}
     - target: {fileID: 950641781787318351, guid: 6e280538d3f23794dbe66de0a59474e0, type: 3}
+      propertyPath: anchor
+      value: 
+      objectReference: {fileID: 826295799}
+    - target: {fileID: 5242972914898908422, guid: 6e280538d3f23794dbe66de0a59474e0, type: 3}
       propertyPath: anchor
       value: 
       objectReference: {fileID: 826295799}
@@ -1844,6 +1860,10 @@ PrefabInstance:
       propertyPath: anchor
       value: 
       objectReference: {fileID: 1973642263}
+    - target: {fileID: 5242972914898908422, guid: 6e280538d3f23794dbe66de0a59474e0, type: 3}
+      propertyPath: anchor
+      value: 
+      objectReference: {fileID: 1973642263}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e280538d3f23794dbe66de0a59474e0, type: 3}
 --- !u!4 &1201712466 stripped
@@ -1865,6 +1885,7 @@ GameObject:
   - component: {fileID: 1257829472}
   - component: {fileID: 1257829471}
   - component: {fileID: 1257829475}
+  - component: {fileID: 1257829476}
   m_Layer: 2
   m_Name: XR Origin
   m_TagString: Untagged
@@ -1978,6 +1999,18 @@ MonoBehaviour:
   alignment: 1
   hostileMask: 256
   overrides: []
+--- !u!114 &1257829476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257829469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccefad296c4a32b4983c98d3863f1a36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1383666893
 GameObject:
   m_ObjectHideFlags: 0
@@ -2072,6 +2105,10 @@ PrefabInstance:
       value: MAIN enemy (1)
       objectReference: {fileID: 0}
     - target: {fileID: 950641781787318351, guid: 6e280538d3f23794dbe66de0a59474e0, type: 3}
+      propertyPath: anchor
+      value: 
+      objectReference: {fileID: 1973642263}
+    - target: {fileID: 5242972914898908422, guid: 6e280538d3f23794dbe66de0a59474e0, type: 3}
       propertyPath: anchor
       value: 
       objectReference: {fileID: 1973642263}
@@ -2199,6 +2236,10 @@ PrefabInstance:
       value: MAIN enemy (1)
       objectReference: {fileID: 0}
     - target: {fileID: 950641781787318351, guid: 6e280538d3f23794dbe66de0a59474e0, type: 3}
+      propertyPath: anchor
+      value: 
+      objectReference: {fileID: 826295799}
+    - target: {fileID: 5242972914898908422, guid: 6e280538d3f23794dbe66de0a59474e0, type: 3}
       propertyPath: anchor
       value: 
       objectReference: {fileID: 826295799}
@@ -2347,6 +2388,10 @@ PrefabInstance:
       value: MAIN enemy (3)
       objectReference: {fileID: 0}
     - target: {fileID: 950641781787318351, guid: 6e280538d3f23794dbe66de0a59474e0, type: 3}
+      propertyPath: anchor
+      value: 
+      objectReference: {fileID: 1973642263}
+    - target: {fileID: 5242972914898908422, guid: 6e280538d3f23794dbe66de0a59474e0, type: 3}
       propertyPath: anchor
       value: 
       objectReference: {fileID: 1973642263}

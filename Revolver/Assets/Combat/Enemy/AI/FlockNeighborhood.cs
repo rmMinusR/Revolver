@@ -8,7 +8,7 @@ public sealed class FlockNeighborhood : MonoBehaviour
     [Serializable]
     public struct Record
     {
-        public CharacterHost neighbor;
+        public CharacterMovementHost neighbor;
         public float distance;
         public float targetAngleRadians;
         public float headingInVisionRadians;
@@ -19,10 +19,10 @@ public sealed class FlockNeighborhood : MonoBehaviour
     [SerializeField] [Range(0, 360)] [Tooltip("In degrees")] private float fovAngle = 45;
     [Min(0)] public float fovDistance = 4;
 
-    private CharacterHost host;
+    private CharacterMovementHost host;
     private void Start()
     {
-        host = GetComponent<CharacterHost>();
+        host = GetComponent<CharacterMovementHost>();
         Debug.Assert(host != null);
     }
 
@@ -34,7 +34,7 @@ public sealed class FlockNeighborhood : MonoBehaviour
 
         float allowedMaxAngleRadians = fovAngle/2 * Mathf.Deg2Rad;
 
-        foreach (CharacterHost i in FindObjectsOfType<CharacterHost>())
+        foreach (CharacterMovementHost i in FindObjectsOfType<CharacterMovementHost>())
         {
             //Don't count self as a neighbor
             if (i.gameObject == this.gameObject) continue;

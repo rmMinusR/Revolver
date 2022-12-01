@@ -48,8 +48,8 @@ public sealed class ContextMapSteering : ISteeringProviderAI
         }
     }
 
-    private CharacterHost __host;
-    public CharacterHost Host => __host!=null ? __host : (__host=GetComponent<CharacterHost>());
+    private CharacterMovementHost __host;
+    public CharacterMovementHost Host => __host!=null ? __host : (__host=GetComponent<CharacterMovementHost>());
 
     private void Start()
     {
