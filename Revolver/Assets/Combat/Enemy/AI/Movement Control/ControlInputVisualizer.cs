@@ -4,7 +4,7 @@ using UnityEngine;
 public sealed class ControlInputVisualizer : MonoBehaviour
 {
     [Header("Component dependencies")]
-    [SerializeField] private CharacterMovementHost host;
+    [SerializeField] private AISteeringHost host;
     [SerializeField] private LineRenderer lastInputVisualizer;
 
     [Header("Scaling")]

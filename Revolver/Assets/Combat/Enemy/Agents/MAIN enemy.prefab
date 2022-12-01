@@ -61,17 +61,12 @@ GameObject:
   - component: {fileID: 501425884862704601}
   - component: {fileID: 501425884862704423}
   - component: {fileID: 501425884862704602}
-  - component: {fileID: 2095490868040939650}
+  - component: {fileID: 3031685633926003103}
   - component: {fileID: 501425884862704603}
-  - component: {fileID: 5919378383324760455}
-  - component: {fileID: 6725990145864562416}
-  - component: {fileID: 5626043403333013028}
-  - component: {fileID: 6903763691256559437}
-  - component: {fileID: 950641781787318351}
-  - component: {fileID: 5242972914898908422}
   - component: {fileID: 6881152513892771685}
   - component: {fileID: 245587737073634058}
   - component: {fileID: 4648314447641183219}
+  - component: {fileID: 2095490868040939650}
   m_Layer: 0
   m_Name: MAIN enemy
   m_TagString: Untagged
@@ -94,6 +89,8 @@ Transform:
   - {fileID: 501425886519677580}
   - {fileID: 501425886256472016}
   - {fileID: 8915975131117374321}
+  - {fileID: 3816473446115889652}
+  - {fileID: 7462962617836491719}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -127,7 +124,7 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2095490868040939650
+--- !u!114 &3031685633926003103
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,11 +133,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 501425884862704604}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c79df54bd34dfa46bf08fb3b29d7615, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a8cf81e941bc2549b3525fbdc34c1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 2
-  mainCollider: {fileID: 0}
+  passiveStrategy: {fileID: 7656644548643952241}
+  attackStrategy: {fileID: 2890229672147170334}
+  sensor: {fileID: 8119506852390992493}
 --- !u!114 &501425884862704603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,296 +148,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 501425884862704604}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ee97af3fa12fb14289326559c2bca85, type: 3}
+  m_Script: {fileID: 11500000, guid: 22d4a492291f2f24bbbecb0b8ae1aa98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
   moveGripRatio: 0.95
   moveControlAccelRate: 0.9
-  moveControlSteerRate: 4
+  moveControlSteerRate: 0.5
   rotateTowardsVelocity: 1
-  controller: {fileID: 5919378383324760455}
+  controller: {fileID: 0}
   heading: 0
   speed: 0
-  rb: {fileID: 501425884862704423}
---- !u!114 &5919378383324760455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501425884862704604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 667b253d68d22d94fbd96c6315cd939e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lastKnownEntryCount: 16
-  __entries:
-  - sourceAngle: 0
-    direction: {x: 1, y: 0, z: 0}
-    value: 0
-  - sourceAngle: 0.3926991
-    direction: {x: 0.9238795, y: 0, z: 0.38268346}
-    value: 0
-  - sourceAngle: 0.7853982
-    direction: {x: 0.70710677, y: 0, z: 0.70710677}
-    value: 0
-  - sourceAngle: 1.1780972
-    direction: {x: 0.38268343, y: 0, z: 0.9238795}
-    value: 0
-  - sourceAngle: 1.5707964
-    direction: {x: -0.00000004371139, y: 0, z: 1}
-    value: 0
-  - sourceAngle: 1.9634955
-    direction: {x: -0.38268352, y: 0, z: 0.9238795}
-    value: 0
-  - sourceAngle: 2.3561945
-    direction: {x: -0.70710677, y: 0, z: 0.70710677}
-    value: 0
-  - sourceAngle: 2.7488937
-    direction: {x: -0.9238796, y: 0, z: 0.38268328}
-    value: 0
-  - sourceAngle: 3.1415927
-    direction: {x: -1, y: 0, z: -0.00000008742278}
-    value: 0
-  - sourceAngle: 3.5342917
-    direction: {x: -0.9238795, y: 0, z: -0.38268343}
-    value: 0
-  - sourceAngle: 3.926991
-    direction: {x: -0.70710665, y: 0, z: -0.7071069}
-    value: 0
-  - sourceAngle: 4.31969
-    direction: {x: -0.38268313, y: 0, z: -0.9238797}
-    value: 0
-  - sourceAngle: 4.712389
-    direction: {x: 0.000000011924881, y: 0, z: -1}
-    value: 0
-  - sourceAngle: 5.105088
-    direction: {x: 0.3826836, y: 0, z: -0.92387944}
-    value: 0
-  - sourceAngle: 5.4977875
-    direction: {x: 0.707107, y: 0, z: -0.70710653}
-    value: 0
-  - sourceAngle: 5.8904862
-    direction: {x: 0.92387956, y: 0, z: -0.38268343}
-    value: 0
-  enableGizmos: 0
---- !u!114 &6725990145864562416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501425884862704604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0668df59724c15d46b0f28ae2c56beb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shapingFunction:
-    rid: 3384040114977243141
-  weight: -0.3
-  clampValues: 1
-  avoidRange: 3.5
-  falloffCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: -1
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -1
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  normalizeValues: 0
-  references:
-    version: 2
-    RefIds:
-    - rid: 3384040114977243141
-      type: {class: CircularShape, ns: , asm: Assembly-CSharp}
-      data:
-        bias: 0
-        min: -1
-        max: 1
---- !u!114 &5626043403333013028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501425884862704604}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6257771093314c643b383deda20ad104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shapingFunction:
-    rid: 3384040114977243136
-  weight: 1
-  clampValues: 1
-  references:
-    version: 2
-    RefIds:
-    - rid: 3384040114977243136
-      type: {class: ManualShape, ns: , asm: Assembly-CSharp}
-      data:
-        shape:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 136
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 180
-            value: 0
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 136
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
---- !u!114 &6903763691256559437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501425884862704604}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2330a3b70b5e7b4fb4466dd6ea36ba8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shapingFunction:
-    rid: 3384040114977243137
-  weight: 1
-  clampValues: 1
-  wanderDirectionNoiseGenerator:
-    mSeed: 1337
-    mFrequency: 0.1
-    mNoiseType: 0
-    mRotationType3D: 0
-    mTransformType3D: 3
-    mFractalType: 0
-    mOctaves: 3
-    mLacunarity: 2
-    mGain: 0.5
-    mWeightedStrength: 0
-    mPingPongStrength: 2
-    mFractalBounding: 0.5714286
-    mCellularDistanceFunction: 1
-    mCellularReturnType: 1
-    mCellularJitterModifier: 1
-    mDomainWarpType: 0
-    mWarpTransformType3D: 3
-    mDomainWarpAmp: 1
-  references:
-    version: 2
-    RefIds:
-    - rid: 3384040114977243137
-      type: {class: ManualShape, ns: , asm: Assembly-CSharp}
-      data:
-        shape:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 136
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 20
-            value: 0.3
-            inSlope: -0.0055555557
-            outSlope: -0.0055555557
-            tangentMode: 136
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 180
-            value: 0
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 136
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
---- !u!114 &950641781787318351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501425884862704604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5763d26b859f5ac46a24d49340752666, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shapingFunction:
-    rid: 3384040114977243142
-  weight: 1
-  clampValues: 1
-  reachedTarget: 1
-  currentTarget: {x: 0, y: 0, z: 0}
-  deadZone: 2
-  references:
-    version: 2
-    RefIds:
-    - rid: 3384040114977243142
-      type: {class: CircularShape, ns: , asm: Assembly-CSharp}
-      data:
-        bias: 0
-        min: -1
-        max: 1
---- !u!114 &5242972914898908422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501425884862704604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92cee9d0974fa8c43abf3606164f7db2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anchor: {fileID: 0}
-  targetRandomRange: 8
-  targetRefreshTimeAvg: 10
-  targetRefreshTimeVariance: 3
+  rb: {fileID: 0}
 --- !u!114 &6881152513892771685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,6 +205,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccefad296c4a32b4983c98d3863f1a36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2095490868040939650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501425884862704604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c79df54bd34dfa46bf08fb3b29d7615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  mainCollider: {fileID: 0}
 --- !u!1 &501425886256472017
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,6 +465,369 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &959551302872373418
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3816473446115889652}
+  - component: {fileID: 7656644548643952241}
+  - component: {fileID: 1974905168969460260}
+  - component: {fileID: 8218224336144104614}
+  - component: {fileID: 9100563070170440472}
+  m_Layer: 0
+  m_Name: Passive steering
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3816473446115889652
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959551302872373418}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 501425884862704601}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7656644548643952241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959551302872373418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667b253d68d22d94fbd96c6315cd939e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastKnownEntryCount: 16
+  __entries:
+  - sourceAngle: 0
+    direction: {x: 1, y: 0, z: 0}
+    value: 0
+  - sourceAngle: 0.3926991
+    direction: {x: 0.9238795, y: 0, z: 0.38268346}
+    value: 0
+  - sourceAngle: 0.7853982
+    direction: {x: 0.70710677, y: 0, z: 0.70710677}
+    value: 0
+  - sourceAngle: 1.1780972
+    direction: {x: 0.38268343, y: 0, z: 0.9238795}
+    value: 0
+  - sourceAngle: 1.5707964
+    direction: {x: -0.00000004371139, y: 0, z: 1}
+    value: 0
+  - sourceAngle: 1.9634955
+    direction: {x: -0.38268352, y: 0, z: 0.9238795}
+    value: 0
+  - sourceAngle: 2.3561945
+    direction: {x: -0.70710677, y: 0, z: 0.70710677}
+    value: 0
+  - sourceAngle: 2.7488937
+    direction: {x: -0.9238796, y: 0, z: 0.38268328}
+    value: 0
+  - sourceAngle: 3.1415927
+    direction: {x: -1, y: 0, z: -0.00000008742278}
+    value: 0
+  - sourceAngle: 3.5342917
+    direction: {x: -0.9238795, y: 0, z: -0.38268343}
+    value: 0
+  - sourceAngle: 3.926991
+    direction: {x: -0.70710665, y: 0, z: -0.7071069}
+    value: 0
+  - sourceAngle: 4.31969
+    direction: {x: -0.38268313, y: 0, z: -0.9238797}
+    value: 0
+  - sourceAngle: 4.712389
+    direction: {x: 0.000000011924881, y: 0, z: -1}
+    value: 0
+  - sourceAngle: 5.105088
+    direction: {x: 0.3826836, y: 0, z: -0.92387944}
+    value: 0
+  - sourceAngle: 5.4977875
+    direction: {x: 0.707107, y: 0, z: -0.70710653}
+    value: 0
+  - sourceAngle: 5.8904862
+    direction: {x: 0.92387956, y: 0, z: -0.38268343}
+    value: 0
+  enableGizmos: 0
+--- !u!114 &1974905168969460260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959551302872373418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0668df59724c15d46b0f28ae2c56beb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapingFunction:
+    rid: 3384040114977243141
+  weight: -0.3
+  clampValues: 1
+  avoidRange: 3.5
+  falloffCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: -1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  normalizeValues: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 3384040114977243141
+      type: {class: CircularShape, ns: , asm: Assembly-CSharp}
+      data:
+        bias: 0
+        min: -1
+        max: 1
+--- !u!114 &8218224336144104614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959551302872373418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5763d26b859f5ac46a24d49340752666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapingFunction:
+    rid: 3384040114977243142
+  weight: 1
+  clampValues: 1
+  deadZone: 2
+  reachedTarget: 1
+  currentTarget: {x: 0, y: 0, z: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 3384040114977243142
+      type: {class: CircularShape, ns: , asm: Assembly-CSharp}
+      data:
+        bias: 0
+        min: -1
+        max: 1
+--- !u!114 &9100563070170440472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959551302872373418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92cee9d0974fa8c43abf3606164f7db2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anchor: {fileID: 0}
+  targetRandomRange: 8
+  targetRefreshTimeAvg: 10
+  targetRefreshTimeVariance: 3
+--- !u!1 &3652219504955341533
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7462962617836491719}
+  - component: {fileID: 2890229672147170334}
+  - component: {fileID: 8953892809312004608}
+  m_Layer: 0
+  m_Name: Attack steering
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7462962617836491719
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3652219504955341533}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 501425884862704601}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2890229672147170334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3652219504955341533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667b253d68d22d94fbd96c6315cd939e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastKnownEntryCount: 16
+  __entries:
+  - sourceAngle: 0
+    direction: {x: 1, y: 0, z: 0}
+    value: 0
+  - sourceAngle: 0.3926991
+    direction: {x: 0.9238795, y: 0, z: 0.38268346}
+    value: 0
+  - sourceAngle: 0.7853982
+    direction: {x: 0.70710677, y: 0, z: 0.70710677}
+    value: 0
+  - sourceAngle: 1.1780972
+    direction: {x: 0.38268343, y: 0, z: 0.9238795}
+    value: 0
+  - sourceAngle: 1.5707964
+    direction: {x: -0.00000004371139, y: 0, z: 1}
+    value: 0
+  - sourceAngle: 1.9634955
+    direction: {x: -0.38268352, y: 0, z: 0.9238795}
+    value: 0
+  - sourceAngle: 2.3561945
+    direction: {x: -0.70710677, y: 0, z: 0.70710677}
+    value: 0
+  - sourceAngle: 2.7488937
+    direction: {x: -0.9238796, y: 0, z: 0.38268328}
+    value: 0
+  - sourceAngle: 3.1415927
+    direction: {x: -1, y: 0, z: -0.00000008742278}
+    value: 0
+  - sourceAngle: 3.5342917
+    direction: {x: -0.9238795, y: 0, z: -0.38268343}
+    value: 0
+  - sourceAngle: 3.926991
+    direction: {x: -0.70710665, y: 0, z: -0.7071069}
+    value: 0
+  - sourceAngle: 4.31969
+    direction: {x: -0.38268313, y: 0, z: -0.9238797}
+    value: 0
+  - sourceAngle: 4.712389
+    direction: {x: 0.000000011924881, y: 0, z: -1}
+    value: 0
+  - sourceAngle: 5.105088
+    direction: {x: 0.3826836, y: 0, z: -0.92387944}
+    value: 0
+  - sourceAngle: 5.4977875
+    direction: {x: 0.707107, y: 0, z: -0.70710653}
+    value: 0
+  - sourceAngle: 5.8904862
+    direction: {x: 0.92387956, y: 0, z: -0.38268343}
+    value: 0
+  enableGizmos: 0
+--- !u!114 &8953892809312004608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3652219504955341533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2330a3b70b5e7b4fb4466dd6ea36ba8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapingFunction:
+    rid: 3384040114977243137
+  weight: 1
+  clampValues: 1
+  wanderDirectionNoiseGenerator:
+    mSeed: 1337
+    mFrequency: 0.1
+    mNoiseType: 0
+    mRotationType3D: 0
+    mTransformType3D: 3
+    mFractalType: 0
+    mOctaves: 3
+    mLacunarity: 2
+    mGain: 0.5
+    mWeightedStrength: 0
+    mPingPongStrength: 2
+    mFractalBounding: 0.5714286
+    mCellularDistanceFunction: 1
+    mCellularReturnType: 1
+    mCellularJitterModifier: 1
+    mDomainWarpType: 0
+    mWarpTransformType3D: 3
+    mDomainWarpAmp: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 3384040114977243137
+      type: {class: ManualShape, ns: , asm: Assembly-CSharp}
+      data:
+        shape:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 136
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 20
+            value: 0.3
+            inSlope: -0.0055555557
+            outSlope: -0.0055555557
+            tangentMode: 136
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 180
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 136
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.33333334
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
 --- !u!1 &4493258622820636054
 GameObject:
   m_ObjectHideFlags: 0

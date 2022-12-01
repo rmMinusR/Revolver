@@ -55,6 +55,6 @@ public class IContextMapProviderEditor : ContextMapEditorHelper
             Debug.LogException(e);
         }
 
-        RenderPreview(preview, lineDrawMat, contextMap.entries, contextMap.GetComponent<CharacterMovementHost>());
+        RenderPreview(preview, lineDrawMat, contextMap.entries, contextMap.GetComponent<AISteeringHost>());
     }
 }

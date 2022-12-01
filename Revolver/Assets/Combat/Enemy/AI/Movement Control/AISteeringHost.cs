@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public sealed class CharacterMovementHost : MonoBehaviour
+public sealed class AISteeringHost : MonoBehaviour
 {
     [Header("Movement settings")]
     [SerializeField] [Min  (0)   ] private float moveSpeed = 1f;
@@ -14,7 +14,7 @@ public sealed class CharacterMovementHost : MonoBehaviour
     [SerializeField] private bool rotateTowardsVelocity = true;
 
     [Header("State")]
-    [SerializeReference] private ISteeringProvider controller;
+    public ISteeringProvider controller;
     [SerializeField] private float heading;
     public float Heading => heading;
     [SerializeField] [Range(0, 1)] private float speed;
@@ -30,8 +30,7 @@ public sealed class CharacterMovementHost : MonoBehaviour
         heading = UnityEngine.Random.Range(0, Mathf.PI * 2);
 
         //Ensure we have valid dependencies
-        Debug.Assert(controller != null);
-        Debug.Assert(rb         != null);
+        Debug.Assert(rb != null);
     }
 
     [NonSerialized] public ControlData lastControlInput;
