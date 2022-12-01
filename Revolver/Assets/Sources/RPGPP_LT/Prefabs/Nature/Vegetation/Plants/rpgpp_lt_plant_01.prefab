@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4418469335166708}
   - component: {fileID: 33802986727585654}
   - component: {fileID: 23805156899640950}
-  - component: {fileID: -351172986232321326}
   m_Layer: 0
   m_Name: rpgpp_lt_plant_01
   m_TagString: Untagged
@@ -62,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 58d53420af384224ea4cfee8973d18cb, type: 2}
+  - {fileID: 2100000, guid: 88e1c9ea02240a7438822f0a6cd79f7e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,22 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!205 &-351172986232321326
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1157028143247034}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0.028045118, y: 0.14133655, z: 0.0495618}
-  m_Size: 1.2135769
-  m_FadeMode: 1
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.05
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23805156899640950}
-  m_Enabled: 1

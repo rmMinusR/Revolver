@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4931211907768612}
   - component: {fileID: 33549118652776542}
   - component: {fileID: 23528821276422034}
-  - component: {fileID: -1177913689273727575}
   m_Layer: 0
   m_Name: rpgpp_lt_grass_small_01b
   m_TagString: Untagged
@@ -62,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 58d53420af384224ea4cfee8973d18cb, type: 2}
+  - {fileID: 2100000, guid: 88e1c9ea02240a7438822f0a6cd79f7e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,22 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!205 &-1177913689273727575
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1733909988577898}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: -0.03026414, y: 0.58775294, z: 0.07367432}
-  m_Size: 1.4745944
-  m_FadeMode: 1
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.05
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23528821276422034}
-  m_Enabled: 1

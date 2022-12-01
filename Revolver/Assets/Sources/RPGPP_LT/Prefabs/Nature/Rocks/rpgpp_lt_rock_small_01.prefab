@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4592640608725440}
   - component: {fileID: 33448121726550406}
   - component: {fileID: 23635007467724672}
-  - component: {fileID: 4350331829768227801}
   m_Layer: 0
   m_Name: rpgpp_lt_rock_small_01
   m_TagString: Untagged
@@ -84,22 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!205 &4350331829768227801
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1994015782226202}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: -0.055590987, y: -0.018706053, z: 0.033273876}
-  m_Size: 0.9141332
-  m_FadeMode: 1
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.05
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23635007467724672}
-  m_Enabled: 1

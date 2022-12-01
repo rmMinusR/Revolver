@@ -34,6 +34,6 @@ public sealed class ContextMapSteeringEditor : ContextMapEditorHelper
             Debug.LogException(e);
         }
 
-        RenderPreview(preview, lineDrawMat, contextMap.entries, contextMap.GetComponent<AISteeringHost>());
+        RenderPreview(preview, lineDrawMat, contextMap.entries, contextMap.Host);
     }
 }
