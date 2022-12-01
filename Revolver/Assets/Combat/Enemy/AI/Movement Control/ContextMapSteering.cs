@@ -10,7 +10,7 @@ using UnityEngine;
 //https://www.youtube.com/watch?v=I5UWsjT4udI&list=PL4QJmtZWf50kvAZap4Xd0JhVEgo9lxdZL&index=2
 //http://www.gameaipro.com/GameAIPro2/GameAIPro2_Chapter18_Context_Steering_Behavior-Driven_Steering_at_the_Macro_Scale.pdf
 
-public sealed class ContextMapSteering : ISteeringProviderAI
+public sealed class ContextMapSteering : ISteeringProvider
 {
     [Serializable]
     public struct Entry
