@@ -31,6 +31,10 @@ public class Portal : MonoBehaviour {
         screen.material.SetInt ("displayMask", 1);
     }
 
+    public static List<Portal> Instances = new List<Portal>();
+    private void OnEnable() => Instances.Add(this);
+    private void OnDisable() => Instances.Remove(this);
+
     void LateUpdate () {
         HandleTravellers ();
     }

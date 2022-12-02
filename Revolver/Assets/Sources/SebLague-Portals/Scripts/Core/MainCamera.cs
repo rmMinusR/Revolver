@@ -1,42 +1,27 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
+[RequireComponent(typeof(MainCamera))]
 public class MainCamera : MonoBehaviour {
 
-    Portal[] portals;
-
     void Awake () {
-        portals = FindObjectsOfType<Portal> ();
-
         RenderPipelineManager.beginCameraRendering += Render;
     }
 
-    //private void LateUpdate()
-    //{
-    //    Render();
-    //}
-    //void Render()
-
     void Render(ScriptableRenderContext ctx, Camera cam)
     {
+        if (cam.gameObject != this.gameObject) return;
 
-        for (int i = 0; i < portals.Length; i++) {
-            portals[i].PrePortalRender ();
-        }
-        for (int i = 0; i < portals.Length; i++) {
-            portals[i].Render (ctx);
-        }
-
-        for (int i = 0; i < portals.Length; i++) {
-            portals[i].PostPortalRender ();
-        }
-
+        foreach (Portal p in Portal.Instances) p.PrePortalRender ();
+        foreach (Portal p in Portal.Instances) p.Render(ctx);
+        foreach (Portal p in Portal.Instances) p.PostPortalRender ();
     }
 
     private void OnDestroy()
     {
-        portals = new Portal[0];
+        RenderPipelineManager.beginCameraRendering -= Render;
     }
 
 }
