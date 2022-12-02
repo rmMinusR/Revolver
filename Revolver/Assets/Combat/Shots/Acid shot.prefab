@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7321755617811689428}
   - component: {fileID: 7321755617811689431}
   - component: {fileID: 7321755617811689430}
+  - component: {fileID: -8471709647084340939}
   m_Layer: 0
   m_Name: Acid shot
   m_TagString: Untagged
@@ -79,6 +80,7 @@ MonoBehaviour:
   effects:
   - <damageAmount>k__BackingField: 10
     <element>k__BackingField: 2
+  isEmpowered: 0
 --- !u!120 &7321755617811689430
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -178,3 +180,18 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &-8471709647084340939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7321755617811689433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762a4f39e9179214fad7f46eaebbc85c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectTime: 1
+  damageMultiplier: 1.5
+  effectVfx: {fileID: 1000012696881832, guid: d7a1052b66868fb47b9a03b3a985e468, type: 3}

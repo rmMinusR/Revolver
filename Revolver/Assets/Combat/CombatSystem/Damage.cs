@@ -6,8 +6,8 @@ using UnityEngine;
 [Serializable]
 public struct Damage
 {
-    [field: SerializeField, Min(0)] public float damageAmount { get; private set; }
-    [field: SerializeField] public Element element { get; private set; }
+    [field: SerializeField, Min(0)] public float damageAmount { get; set; }
+    [field: SerializeField] public Element element { get; set; }
 
     public enum Element
     {
