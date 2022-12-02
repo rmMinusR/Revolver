@@ -98,10 +98,9 @@ MonoBehaviour:
   dpsTickEffects:
   - <damageAmount>k__BackingField: 2.5
     <element>k__BackingField: 1
-  dpsVfx: {fileID: 0}
+  dpsVfx: {fileID: 9195308507420792288, guid: e214fc1b6218d8d49a4f10e542b06427, type: 3}
   explodeRange: 5
-  explosionVfx: {fileID: 0}
-  effectsPerTick: []
+  explosionVfx: {fileID: 6519082187826855582, guid: 8541f7b597b1f624db5a07d59cbef3e8, type: 3}
 --- !u!120 &7321755617811689430
 LineRenderer:
   m_ObjectHideFlags: 0

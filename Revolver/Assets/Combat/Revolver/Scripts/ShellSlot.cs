@@ -17,6 +17,7 @@ public sealed class ShellSlot : MonoBehaviour
         contents.transform.localScale = Vector3.one;
     }
 
+    [SerializeField] private Vector3 unloadDirection = Vector3.back;
     [SerializeField] [Min(0)] private float unloadScatter = 0.5f;
 
     public void Unload()
@@ -25,7 +26,7 @@ public sealed class ShellSlot : MonoBehaviour
         {
             contents.transform.parent = null;
 
-            contents.gameObject.AddComponent<Rigidbody>().velocity += Random.insideUnitSphere * unloadScatter;
+            contents.gameObject.AddComponent<Rigidbody>().velocity += Random.insideUnitSphere * unloadScatter + transform.TransformVector(unloadDirection);
             contents.gameObject.AddComponent<MeshCollider>().convex = true;
 
             TimedDestroy destroyer = contents.gameObject.AddComponent<TimedDestroy>();

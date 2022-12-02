@@ -57,8 +57,8 @@ public sealed class FlickGestureRecognizer : MonoBehaviour
         if (cooldownRemaining > 0) cooldownRemaining -= Time.deltaTime;
         else
         {
-            (Gesture, float) toPerform = gestures.Select(g => (g, g.Eval(motionHistory))).MinBy(i => i.Item2);
-            if (toPerform.Item1.IsValid(motionHistory))
+            (Gesture, float) toPerform = gestures.Where(g => g.IsValid(motionHistory)).Select(g => (g, g.Eval(motionHistory))).MinBy(i => i.Item2);
+            if (toPerform.Item1 != null && toPerform.Item1.IsValid(motionHistory))
             {
                 cooldownRemaining = cooldown;
                 toPerform.Item1.Perform();
@@ -73,49 +73,20 @@ public sealed class FlickGestureRecognizer : MonoBehaviour
         [SerializeField] [Min(0)] private float deadZone = 0.05f;
         //[SerializeField] [Min(0)] private float accelDeadZone = 0.05f;
         [SerializeField] [Min(0)] private float deadZonePenalty = 1;
-        [SerializeField] [Range(0, 1)] private float velVsAccel = 0.5f;
+        [SerializeField] [Min(0)] private float minAccel = 5f;
 
         public event Action OnPerformed;
         public void Perform() => OnPerformed?.Invoke();
 
-        public bool IsValid(List<Frame> inputs) => inputs.All(i => i.instantVel.magnitude > deadZone);
+        public bool IsValid(List<Frame> inputs) => inputs.All(i => i.instantVel.magnitude > deadZone) && -inputs.Average(i => Vector3.Dot(linear, i.instantAccel)) > minAccel;
 
         public float Eval(List<Frame> inputs)
         {
             return inputs.Sum(
                 i => i.instantVel.magnitude > deadZone
-                    ? Mathf.Lerp(Vector3.Angle(linear, i.instantVel), Vector3.Angle(linear, i.instantAccel), velVsAccel)
+                    ? Vector3.Angle(linear, i.instantVel)
                     : deadZonePenalty
             );
         }
-
-        /*
-        public float Eval(List<Frame> inputs)
-        {
-            float val = 0;
-            
-            foreach (Frame i in inputs)
-            {
-                if (i.instantVel.magnitude > deadZone && i.instantAccel.magnitude > accelDeadZone)
-                {
-                    i.instantVel.Normalize();
-                    i.instantAccel.Normalize();
-
-                    val += Mathf.Lerp(
-                        Vector3.Distance(i.instantVel, linear),
-                        Vector3.Distance(i.instantAccel, linear),
-                        velVsAccel
-                    );
-                }
-                else
-                {
-                    val += deadZonePenalty;
-                }
-
-            }
-
-            return val;
-        }
-        */
     }
 }

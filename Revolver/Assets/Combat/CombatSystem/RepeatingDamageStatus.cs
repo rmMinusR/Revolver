@@ -33,10 +33,11 @@ public sealed class RepeatingDamageStatus : MonoBehaviour, ICombatEffect
     public static RepeatingDamageStatus Apply(ICombatAffector source, ICombatTarget target, float time, float ticksPerSecond, List<Damage> effectsPerTick, GameObject vfx)
     {
         GameObject go = new GameObject(nameof(RepeatingDamageStatus));
-        if (source is Component c)
+        if (target is Component c)
         {
             go.transform.parent = c.transform;
-            if (vfx) Instantiate(vfx, go.transform);
+            go.transform.localPosition = Vector3.zero;
+            if (vfx != null) Instantiate(vfx, go.transform).transform.localPosition = Vector3.zero;
         }
 
         RepeatingDamageStatus s = go.AddComponent<RepeatingDamageStatus>();

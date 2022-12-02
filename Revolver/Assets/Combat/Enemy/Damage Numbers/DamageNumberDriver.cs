@@ -33,6 +33,7 @@ public class DamageNumberDriver : MonoBehaviour
         averagedColor = Color.Lerp(averagedColor, damageColor, damage.damageAmount/totalStoredDamage);
 
         text.color = averagedColor;
+        text.text = totalStoredDamage.ToString();
     }
 
     void Update()

@@ -22,6 +22,7 @@ public sealed class CylinderState : MonoBehaviour
 
         revolver = GetComponentInParent<Revolver>();
         flickUnload.OnPerformed += revolver.cylinderState.TryUnload;
+        revolver.flick.gestures.Add(flickUnload);
     }
 
     internal void TryUnload()

@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c771e6adeeff874685a739e39c7df99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unloadDirection: {x: 0, y: 0, z: -0.3}
   unloadScatter: 0.8
   dbgLoad: {fileID: 0}
 --- !u!1 &312666163941759951
@@ -154,6 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c771e6adeeff874685a739e39c7df99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unloadDirection: {x: 0, y: 0, z: -0.3}
   unloadScatter: 0.8
   dbgLoad: {fileID: 0}
 --- !u!1 &2317395430369884756
@@ -329,6 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c771e6adeeff874685a739e39c7df99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unloadDirection: {x: 0, y: 0, z: -0.3}
   unloadScatter: 0.8
   dbgLoad: {fileID: 0}
 --- !u!1 &3785533212227528056
@@ -820,6 +823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c771e6adeeff874685a739e39c7df99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unloadDirection: {x: 0, y: 0, z: -0.3}
   unloadScatter: 0.8
   dbgLoad: {fileID: 0}
 --- !u!1 &5202334896607545234
@@ -1003,7 +1007,9 @@ MonoBehaviour:
   rotateDuration: 0.15
   flickUnload:
     linear: {x: 0, y: 0.9, z: -0.2}
-    deadZone: 0.02
+    deadZone: 0.8
+    deadZonePenalty: 10
+    velVsAccel: 0
   unloadFailChance: 0.1
 --- !u!114 &2972288832958438476
 MonoBehaviour:
@@ -1020,10 +1026,14 @@ MonoBehaviour:
   pivot: {fileID: 7520347707863257938}
   flickOut:
     linear: {x: -1, y: 0, z: 0}
-    deadZone: 0.02
+    deadZone: 0.8
+    deadZonePenalty: 10
+    velVsAccel: 0
   flickIn:
     linear: {x: 1, y: 0, z: 0}
-    deadZone: 0.02
+    deadZone: 0.8
+    deadZonePenalty: 10
+    velVsAccel: 0
   popoutAngle: 60
 --- !u!114 &5219301871289312234
 MonoBehaviour:
@@ -1144,6 +1154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c771e6adeeff874685a739e39c7df99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unloadDirection: {x: 0, y: 0, z: -0.3}
   unloadScatter: 0.8
   dbgLoad: {fileID: 0}
 --- !u!1 &7553000513819180700
@@ -1333,5 +1344,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c771e6adeeff874685a739e39c7df99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unloadDirection: {x: 0, y: 0, z: -0.3}
   unloadScatter: 0.8
   dbgLoad: {fileID: 0}

@@ -26,7 +26,7 @@ public sealed class TriggerColliderSensor : Sensor
         if (other.TryGetComponent(out Sensable s))
         {
             sensed.Remove(s);
-            OnBeganSensing?.Invoke(s);
+            OnStoppedSensing?.Invoke(s);
         }
     }
 }

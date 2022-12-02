@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7321755617811689428}
   - component: {fileID: 7321755617811689431}
   - component: {fileID: 7321755617811689430}
+  - component: {fileID: -6494547454326818151}
   m_Layer: 0
   m_Name: Shock shot
   m_TagString: Untagged
@@ -79,6 +80,7 @@ MonoBehaviour:
   effects:
   - <damageAmount>k__BackingField: 10
     <element>k__BackingField: 3
+  isEmpowered: 0
 --- !u!120 &7321755617811689430
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -178,3 +180,16 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &-6494547454326818151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7321755617811689433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df06897013e6f364693d9274064033fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arcPrefab: {fileID: 3997131475540454373, guid: 4cc0325ce9038e94a894c71817c8fa98, type: 3}

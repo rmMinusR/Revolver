@@ -14,9 +14,6 @@ public sealed class EmpoweredFireShot : EmpoweredShotEffect
     [SerializeField] [Min(0)] private float explodeRange = 5;
     [SerializeField] private GameObject explosionVfx;
 
-    [Space]
-    [SerializeField] private List<Damage> effectsPerTick;
-
     public override void Hit(ICombatAffector source, ICombatTarget initialTarget, RaycastHit hit)
     {
         //Collect targets
@@ -26,7 +23,7 @@ public sealed class EmpoweredFireShot : EmpoweredShotEffect
         //Apply
         foreach (ICombatTarget t in affected)
         {
-            if (source.GetSentimentTowards(t) == Sentiment.Hostile) RepeatingDamageStatus.Apply(source, t, dpsTime, dpsTickRate, effectsPerTick, dpsVfx);
+            if (source.GetSentimentTowards(t) == Sentiment.Hostile) RepeatingDamageStatus.Apply(source, t, dpsTime, dpsTickRate, dpsTickEffects, dpsVfx);
         }
 
         //VFX
