@@ -10,8 +10,8 @@ public abstract class AIAttack : MonoBehaviour
     [SerializeField] [Min(0)] protected internal float globalCooldown;
     public bool IsValid => Time.time > nextActivatableTime;
 
-    protected ICombatTarget target { get; private set; }
-    protected AIAttackController context { get; private set; }
+    protected internal ICombatTarget target { get; private set; }
+    protected internal AIAttackController context { get; private set; }
 
     public void BeginPerforming(AIAttackController context, ICombatTarget target)
     {

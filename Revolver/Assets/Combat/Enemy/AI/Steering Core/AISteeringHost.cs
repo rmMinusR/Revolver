@@ -11,7 +11,6 @@ public sealed class AISteeringHost : MonoBehaviour
     [SerializeField] [Range(0, 1)] private float moveGripRatio = 0.95f;
     [SerializeField] [Range(0, 1)] private float moveControlAccelRate = 0.5f;
     [SerializeField] [Min  (0)   ] private float moveControlSteerRate = 0.5f;
-    [SerializeField] private bool rotateTowardsVelocity = true;
 
     [Header("State")]
     public ISteeringProvider controller;
@@ -43,9 +42,6 @@ public sealed class AISteeringHost : MonoBehaviour
 
         //Update movement with control data
         _TickMovement(); //FIXME coupling?
-
-        //Update rotation
-        if (rotateTowardsVelocity && speed > 0.1f) transform.rotation = Quaternion.LookRotation(Movement3D);
     }
     
     private void _TickMovement()

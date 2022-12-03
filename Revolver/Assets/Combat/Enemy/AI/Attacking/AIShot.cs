@@ -25,10 +25,13 @@ public sealed class AIShot : MonoBehaviour, ICombatEffect
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject != ((Component)__source).gameObject && other.TryGetComponent(out ICombatTarget t))
+        if (other.TryGetComponent(out ICombatTarget t))
         {
-            Apply(t);
-            Destroy(gameObject);
+            if ((Object)__source == null || other.gameObject != ((Component)__source).gameObject)
+            {
+                Apply(t);
+                Destroy(gameObject);
+            }
         }
     }
 }

@@ -56,6 +56,28 @@ public sealed class ContextMapSteering : ISteeringProvider
         BuildEntries();
     }
 
+    [SerializeField] private RotateTarget rotateTowards = RotateTarget.Velocity;
+    private enum RotateTarget
+    {
+        None,
+        Velocity,
+        AttackTarget
+    }
+
+    private void Update()
+    {
+        Transform attackTarget = (GetComponentInParent<AIAttack>()?.target as Component)?.transform;
+
+        //Update rotation
+        Host.transform.rotation = rotateTowards switch
+        {
+            RotateTarget.None         => Host.transform.rotation,
+            RotateTarget.Velocity     => Host.Speed > 0.1f ? Quaternion.LookRotation(Host.Movement3D) : Host.transform.rotation,
+            RotateTarget.AttackTarget => attackTarget ? Quaternion.LookRotation(attackTarget.position - Host.transform.position) : Host.transform.rotation,
+            _ => throw new NotImplementedException(),
+        };
+    }
+
 #if UNITY_EDITOR
     [SerializeField] private bool enableGizmos = false;
 #endif

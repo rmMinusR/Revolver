@@ -29,14 +29,16 @@ public sealed class SensorAggregate : Sensor
 
     private void StoppedSensingProxy(Sensable s)
     {
-        int newCount = sensed[s];
-        --newCount;
-
-        if (newCount > 0) sensed[s] = newCount;
-        else
+        if (sensed.TryGetValue(s, out int newCount))
         {
-            sensed.Remove(s);
-            OnStoppedSensing?.Invoke(s);
+            --newCount;
+
+            if (newCount > 0) sensed[s] = newCount;
+            else
+            {
+                sensed.Remove(s);
+                OnStoppedSensing?.Invoke(s);
+            }
         }
     }
 
