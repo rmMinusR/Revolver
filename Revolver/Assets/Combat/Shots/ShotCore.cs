@@ -23,9 +23,10 @@ public class ShotCore : MonoBehaviour
     [Serializable]
     public class PathSeg //Struct is more performant, but also leads to awful syntax
     {
+        public RaycastHit hit;
         public Vector3 start;
         public Vector3 end => hit.point;
-        public RaycastHit hit;
+        public Vector3 direction => (end-start).normalized;
     }
     [NonSerialized] public List<PathSeg> pathSegments;
     public PathSeg lastSeg => pathSegments[pathSegments.Count-1];
@@ -34,16 +35,8 @@ public class ShotCore : MonoBehaviour
     {
         pathSegments = new List<PathSeg>();
 
-        //Default case: Raycast
-        PathSeg raycast = new PathSeg() { start = transform.position };
-        if (Physics.Raycast(raycast.start, transform.forward, out raycast.hit)) target = raycast.hit.collider.GetComponentInParent<ICombatTarget>();
-        else raycast.hit.point = transform.position + transform.forward * 100; //Ensure good hit location, even if firing at the air
-        pathSegments.Add(raycast);
+        AppendPathSegment(new Ray(transform.position, transform.forward), true);
 
-        //Apply path resolvers
-        //Fallback target selectors and special interactions like the Coin or Portal
-        foreach (ShotPathResolver fallback in GetComponents<ShotPathResolver>()) fallback.ResolvePath();
-        
         //Setup trail
         lingerTimeRemaining = lingerTime;
         foreach (PathSeg seg in pathSegments)
@@ -56,6 +49,23 @@ public class ShotCore : MonoBehaviour
 
         //Apply all effects
         foreach (ShotEffect e in GetComponents<ShotEffect>()) e.Hit(source, target, lastSeg.hit);
+    }
+
+    public void AppendPathSegment(Ray ray, bool useShotResolvers)
+    {
+        //Default case: Raycast
+        PathSeg raycast = new PathSeg() { start = ray.origin };
+        if (Physics.Raycast(ray, out raycast.hit)) target = raycast.hit.collider.GetComponentInParent<ICombatTarget>();
+        else raycast.hit.point = ray.origin + ray.direction * 100; //Ensure good hit location, even if firing at the air
+        pathSegments.Add(raycast);
+
+        if (useShotResolvers)
+        {
+            //Apply path resolvers
+            //Fallback target selectors like Magnetism
+            //Special interactions like the Coin or Portal
+            foreach (ShotPathResolver fallback in GetComponents<ShotPathResolver>()) fallback.ResolvePath();
+        }
     }
 
     private void Update()

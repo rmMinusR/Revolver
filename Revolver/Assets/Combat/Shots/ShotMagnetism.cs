@@ -10,25 +10,35 @@ public class ShotMagnetism : ShotPathResolver
     {
         if (shot.target == null)
         {
-            float minAngle = float.PositiveInfinity;
-            foreach (ShotMagnetismTarget t in FindObjectsOfType<ShotMagnetismTarget>()) //TODO how to work with breakables?
+            shot.target = FindTarget(transform.position, transform.forward, angle, out shot.lastSeg.hit).Combat;
+        }
+    }
+
+    public static ShotMagnetismTarget FindTarget(Vector3 position, Vector3 direction, float angle, out RaycastHit hit)
+    {
+        ShotMagnetismTarget target = null;
+        hit = default;
+
+        float minAngle = float.PositiveInfinity;
+        foreach (ShotMagnetismTarget t in FindObjectsOfType<ShotMagnetismTarget>())
+        {
+            float ang = Vector3.Angle(position - t.transform.position, direction);
+            if (target == null || ang < minAngle)
             {
-                float ang = Vector3.Angle(transform.position - t.transform.position, transform.forward);
-                if (ang < minAngle)
-                {
-                    shot.target = t.Combat;
-                    minAngle = ang;
-                }
-            }
-            
-            //Verify it's within magnetism angle range
-            if (minAngle > angle) shot.target = null;
-            else
-            {
-                //Redo raycast to make sure we can hit it
-                bool hasLineOfSight = Physics.Raycast(transform.position, ((Component)shot.target).transform.position - transform.position, out shot.lastSeg.hit);
-                if (!hasLineOfSight) shot.target = null;
+                target = t;
+                minAngle = ang;
             }
         }
+            
+        //Verify it's within magnetism angle range
+        if (minAngle > angle) target = null;
+        else
+        {
+            //Redo raycast to make sure we can hit it
+            bool hasLineOfSight = Physics.Raycast(position, target.transform.position - position, out hit);
+            if (!hasLineOfSight) target = null;
+        }
+
+        return target;
     }
 }
