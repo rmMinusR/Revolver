@@ -8,33 +8,30 @@ using UnityEngine;
 public sealed class AICharacterHost : MonoBehaviour
 {
     [SerializeField] private ISteeringProvider passiveStrategy;
-    [SerializeField] private ISteeringProvider attackStrategy;
 
     [SerializeField] private Sensor sensor;
-    private AISteeringHost steering;
-    private CombatantEntity combat;
+    public AISteeringHost steering { get; private set; }
+    [SerializeField] private AIAttackController attackController;
+    public CombatantEntity combat { get; private set; }
 
-    private ICombatTarget attackTarget;
+    public ICombatTarget attackTarget { get; private set; }
 
     private void Start()
     {
         steering = GetComponent<AISteeringHost>();
         combat = GetComponent<CombatantEntity>();
 
-        sensor.OnBeganSensing += AggroOnPlayer;
+        attackController.BindTo(this);
+
+        sensor.OnBeganSensing += AggroOnTarget;
         steering.controller = passiveStrategy;
     }
 
-    private void AggroOnPlayer(Sensable s)
+    private void AggroOnTarget(Sensable s)
     {
         if (s.TryGetComponent(out ICombatTarget t) && combat.GetSentimentTowards(t) == Sentiment.Hostile)
         {
             attackTarget = t;
         }
-    }
-
-    private void Update()
-    {
-        steering.controller = attackTarget != null ? attackStrategy : passiveStrategy;
     }
 }
