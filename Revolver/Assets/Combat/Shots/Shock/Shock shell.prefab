@@ -45,8 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83ca22a254d5604594301973bdf1953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayIcon: {fileID: 21300000, guid: 3275b1d29ff038c41a02e94a63541590, type: 3}
+  displayName: Shock
   slot: {fileID: 0}
-  onFiredPrefab: {fileID: 7321755617811689431, guid: 25e7245b62216684cb231b17a79ee71f, type: 3}
+  onFiredPrefab: {fileID: 7047331620224635417, guid: 25e7245b62216684cb231b17a79ee71f, type: 3}
   casingPersistTime: 3
   hasFired: 0
   fireHapticAmp: 0.8

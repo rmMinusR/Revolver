@@ -8,8 +8,6 @@ public class Loadable
 {
     public Vector2 position;
     public Shell prefab;
-    public Sprite icon;
-    public string name;
 }
 
 public sealed class CylinderLoader : MonoBehaviour
@@ -17,7 +15,6 @@ public sealed class CylinderLoader : MonoBehaviour
     private Revolver revolver;
     [SerializeField] private Transform uiRoot;
     [SerializeField] private LoadableUI loadableUiPrefab;
-
 
     [Space]
     [SerializeField] [Min(0)] private float deadZone = 0.2f;

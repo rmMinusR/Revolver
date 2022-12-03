@@ -11,8 +11,8 @@ public sealed class LoadableUI : MonoBehaviour
 
     public void Write(Loadable src)
     {
-        if (nameplate) nameplate.text = src.name;
-        if (icon) icon.sprite = src.icon;
+        if (nameplate) nameplate.text = src.prefab.displayName;
+        if (icon     ) icon   .sprite = src.prefab.displayIcon;
 
         transform.localPosition = src.position;
         transform.localRotation = Quaternion.identity;

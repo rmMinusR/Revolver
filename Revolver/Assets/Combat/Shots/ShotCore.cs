@@ -13,55 +13,49 @@ public class ShotCore : MonoBehaviour
     [SerializeField] Gradient colorOverTime;
     private float lingerTimeRemaining = 0;
 
-    [SerializeField] [Range(0, 180)] private float magnetismAngle = 5f;
-
-    private LineRenderer trail;
+    [SerializeField] private LineRenderer trailPrefab;
+    private List<LineRenderer> trails = new List<LineRenderer>();
 
     [NonSerialized] public ICombatAffector source;
     [NonSerialized] public ICombatTarget target;
-    [NonSerialized] public RaycastHit hit;
     [InspectorReadOnly] public bool isEmpowered = false;
+
+    [Serializable]
+    public class PathSeg //Struct is more performant, but also leads to awful syntax
+    {
+        public Vector3 start;
+        public Vector3 end => hit.point;
+        public RaycastHit hit;
+    }
+    [NonSerialized] public List<PathSeg> pathSegments;
+    public PathSeg lastSeg => pathSegments[pathSegments.Count-1];
 
     private void Start()
     {
-        bool directHit = Physics.Raycast(transform.position, transform.forward, out hit);
-        if (directHit) target = hit.collider.GetComponentInParent<ICombatTarget>();
-        directHit &= target != null;
+        pathSegments = new List<PathSeg>();
 
-        //If we didn't hit anything, try to lock onto nearest target
-        if (!directHit)
-        {
-            float minAngle = float.PositiveInfinity;
-            foreach (CombatantEntity e in FindObjectsOfType<CombatantEntity>()) //TODO how to work with breakables?
-            {
-                float ang = Vector3.Angle(transform.position - e.transform.position, transform.forward);
-                if (ang < minAngle)
-                {
-                    target = e;
-                    minAngle = ang;
-                }
-            }
+        //Default case: Raycast
+        PathSeg raycast = new PathSeg() { start = transform.position };
+        if (Physics.Raycast(raycast.start, transform.forward, out raycast.hit)) target = raycast.hit.collider.GetComponentInParent<ICombatTarget>();
+        else raycast.hit.point = transform.position + transform.forward * 100; //Ensure good hit location, even if firing at the air
+        pathSegments.Add(raycast);
 
-            //Verify it's within magnetism angle range
-            if (minAngle > magnetismAngle) target = null;
-            else
-            {
-                //Redo raycast to make sure we can hit it
-                if (!Physics.Raycast(transform.position, ((Component)target).transform.position - transform.position, out hit)) target = null;
-            }
-        }
-
-        //Ensure good hit location, even if firing at the air
-        if (hit.collider == null) hit.point = transform.position + transform.forward * 100;
-
+        //Apply path resolvers
+        //Fallback target selectors and special interactions like the Coin or Portal
+        foreach (ShotPathResolver fallback in GetComponents<ShotPathResolver>()) fallback.ResolvePath();
+        
         //Setup trail
         lingerTimeRemaining = lingerTime;
-        trail = GetComponent<LineRenderer>();
-        if (trail) trail.SetPosition(0, transform.position);
-        if (trail) trail.SetPosition(1, hit.point);
+        foreach (PathSeg seg in pathSegments)
+        {
+            LineRenderer trail = Instantiate(trailPrefab, transform);
+            trails.Add(trail);
+            trail.SetPosition(0, seg.start);
+            trail.SetPosition(1, seg.end);
+        }
 
         //Apply all effects
-        foreach (ShotEffect e in GetComponents<ShotEffect>()) e.Hit(source, target, hit);
+        foreach (ShotEffect e in GetComponents<ShotEffect>()) e.Hit(source, target, lastSeg.hit);
     }
 
     private void Update()
@@ -69,6 +63,6 @@ public class ShotCore : MonoBehaviour
         lingerTimeRemaining -= Time.deltaTime;
         if (lingerTimeRemaining < 0) Destroy(gameObject);
 
-        if (trail) trail.startColor = trail.endColor = colorOverTime.Evaluate(1 - lingerTimeRemaining/lingerTime);
+        foreach (LineRenderer trail in trails) trail.startColor = trail.endColor = colorOverTime.Evaluate(1 - lingerTimeRemaining/lingerTime);
     }
 }

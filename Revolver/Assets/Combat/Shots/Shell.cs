@@ -6,6 +6,10 @@ using UnityEngine.XR.OpenXR.Input;
 
 public sealed class Shell : SparkReciever
 {
+    public Sprite displayIcon;
+    public string displayName;
+
+    [Space]
     [SerializeField] internal ShellSlot slot;
     [SerializeField] private ShotCore onFiredPrefab;
     [Min(0)] public float casingPersistTime = 3;
