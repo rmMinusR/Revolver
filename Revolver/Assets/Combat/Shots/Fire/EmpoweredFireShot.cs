@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public sealed class EmpoweredFireShot : EmpoweredShotEffect
+public sealed class EmpoweredFireShot : ShotEffect
 {
     [SerializeField] [Min(0)] private float dpsTime = 1;
     [SerializeField] [Min(0)] private float dpsTickRate = 2;
@@ -14,19 +14,22 @@ public sealed class EmpoweredFireShot : EmpoweredShotEffect
     [SerializeField] [Min(0)] private float explodeRange = 5;
     [SerializeField] private GameObject explosionVfx;
 
-    protected override void Hit(ICombatAffector source, ICombatTarget initialTarget, RaycastHit hit)
+    protected internal override void Hit(ICombatAffector source, ICombatTarget initialTarget, RaycastHit hit)
     {
-        //Collect targets
-        HashSet<ICombatTarget> affected = new HashSet<ICombatTarget>();
-        foreach (Collider c in Physics.OverlapSphere(hit.point, explodeRange)) if (c.TryGetComponent(out ICombatTarget t)) affected.Add(t);
-
-        //Apply
-        foreach (ICombatTarget t in affected)
+        if (shot.isEmpowered)
         {
-            if (source.GetSentimentTowards(t) == Sentiment.Hostile) RepeatingDamageStatus.Apply(source, t, dpsTime, dpsTickRate, dpsTickEffects, dpsVfx);
-        }
+            //Collect targets
+            HashSet<ICombatTarget> affected = new HashSet<ICombatTarget>();
+            foreach (Collider c in Physics.OverlapSphere(hit.point, explodeRange)) if (c.TryGetComponent(out ICombatTarget t)) affected.Add(t);
 
-        //VFX
-        if (explosionVfx) Instantiate(explosionVfx, hit.point, Quaternion.identity);
+            //Apply
+            foreach (ICombatTarget t in affected)
+            {
+                if (source.GetSentimentTowards(t) == Sentiment.Hostile) RepeatingDamageStatus.Apply(source, t, dpsTime, dpsTickRate, dpsTickEffects, dpsVfx);
+            }
+
+            //VFX
+            if (explosionVfx) Instantiate(explosionVfx, hit.point, Quaternion.identity);
+        }
     }
 }

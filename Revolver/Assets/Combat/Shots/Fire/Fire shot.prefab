@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7321755617811689428}
   - component: {fileID: 7321755617811689431}
+  - component: {fileID: 2607401572829551692}
   - component: {fileID: 8412607031184016069}
   - component: {fileID: 7321755617811689430}
   m_Layer: 0
@@ -81,6 +82,21 @@ MonoBehaviour:
   - <damageAmount>k__BackingField: 10
     <element>k__BackingField: 1
   isEmpowered: 0
+--- !u!114 &2607401572829551692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7321755617811689433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e509706139134eb4f899b99927c9c100, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects:
+  - <damageAmount>k__BackingField: 10
+    <element>k__BackingField: 1
 --- !u!114 &8412607031184016069
 MonoBehaviour:
   m_ObjectHideFlags: 0

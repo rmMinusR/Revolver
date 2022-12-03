@@ -7,7 +7,7 @@ using UnityEngine.XR.OpenXR.Input;
 public sealed class Shell : SparkReciever
 {
     [SerializeField] internal ShellSlot slot;
-    [SerializeField] private FiredShot onFiredPrefab;
+    [SerializeField] private ShotCore onFiredPrefab;
     [Min(0)] public float casingPersistTime = 3;
 
     public bool hasFired = false;
@@ -22,8 +22,8 @@ public sealed class Shell : SparkReciever
         {
             Revolver revolver = GetComponentInParent<Revolver>();
 
-            FiredShot shot = Instantiate(onFiredPrefab, revolver.bulletOrigin.position, revolver.bulletOrigin.rotation);
-            shot.SetSource(revolver.owner);
+            ShotCore shot = Instantiate(onFiredPrefab, revolver.bulletOrigin.position, revolver.bulletOrigin.rotation);
+            shot.source = revolver.owner;
             shot.isEmpowered = revolver ? revolver.cylinderState.Slots.Count(i => i.contents != null && !i.contents.hasFired) == 1 : false; //Empower if this is the last shot
             hasFired = true;
 

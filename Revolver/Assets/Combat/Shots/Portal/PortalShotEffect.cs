@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(FiredShot))]
+[RequireComponent(typeof(ShotCore))]
 public class PortalShotEffect : MonoBehaviour
 {
     [SerializeField] private Portal portalPrefab;
@@ -10,7 +10,7 @@ public class PortalShotEffect : MonoBehaviour
 
     protected virtual void Start()
     {
-        FiredShot fs = GetComponent<FiredShot>();
+        ShotCore fs = GetComponent<ShotCore>();
         
         if (fs.hit.collider)
         {

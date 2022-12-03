@@ -7,20 +7,19 @@ using UnityEngine;
 using UnityEngine.VFX;
 
 [DefaultExecutionOrder(-10)]
-public class FiredShot : MonoBehaviour, ICombatEffect
+public class ShotCore : MonoBehaviour
 {
     [SerializeField] [Min(0)] private float lingerTime = 2;
     [SerializeField] Gradient colorOverTime;
     private float lingerTimeRemaining = 0;
 
-    [NonSerialized] public RaycastHit hit;
-    [NonSerialized] public ICombatTarget target;
-
     [SerializeField] [Range(0, 180)] private float magnetismAngle = 5f;
-    [SerializeField] private List<Damage> effects;
 
     private LineRenderer trail;
 
+    [NonSerialized] public ICombatAffector source;
+    [NonSerialized] public ICombatTarget target;
+    [NonSerialized] public RaycastHit hit;
     [InspectorReadOnly] public bool isEmpowered = false;
 
     private void Start()
@@ -61,15 +60,9 @@ public class FiredShot : MonoBehaviour, ICombatEffect
         if (trail) trail.SetPosition(0, transform.position);
         if (trail) trail.SetPosition(1, hit.point);
 
-        //Apply damage
-        if (target != null && __source.GetSentimentTowards(target) != Sentiment.Friendly) Apply(target);
+        //Apply all effects
+        foreach (ShotEffect e in GetComponents<ShotEffect>()) e.Hit(source, target, hit);
     }
-
-    private ICombatAffector __source;
-    public void SetSource(ICombatAffector source) => __source = source;
-    public ICombatAffector GetSource() => __source;
-    public void Apply(ICombatTarget target) => CombatAPI.Hit(GetSource(), target, this, effects);
-
 
     private void Update()
     {
