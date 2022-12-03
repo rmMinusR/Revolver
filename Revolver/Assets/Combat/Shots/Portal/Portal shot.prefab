@@ -139,7 +139,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Portal shot
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 490485074535340316, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
 --- !u!1 &4914359515876269083 stripped
 GameObject:

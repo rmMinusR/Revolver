@@ -142,6 +142,8 @@ GameObject:
   - component: {fileID: 7321755617811689428}
   - component: {fileID: 7321755617811689431}
   - component: {fileID: 490485074535340316}
+  - component: {fileID: -3791830944287855126}
+  - component: {fileID: -3892850477404663518}
   m_Layer: 0
   m_Name: BASE SHOT
   m_TagString: Untagged
@@ -222,3 +224,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 5
+--- !u!114 &-3791830944287855126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7321755617811689433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee988ca0f43f69b44ae91a011dc1e250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-3892850477404663518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7321755617811689433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cecb490669cc7747b9defef62d3aa59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magnetismAngle: 90

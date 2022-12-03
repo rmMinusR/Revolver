@@ -10,7 +10,7 @@ public class ShotRicochetRedirector : ShotPathResolver
 
     protected internal override void ResolvePath()
     {
-        if (!isProcessing && shot.lastSeg.hit.collider.TryGetComponent(out Portal portal))
+        if (!isProcessing && shot.lastSeg.hit.collider.TryGetComponent(out Ricochet _))
         {
             //Find new output location
             Ray ray = new Ray(shot.lastSeg.end, Vector3.Reflect(shot.lastSeg.direction, shot.lastSeg.hit.normal));

@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class ShotMagnetism : ShotPathResolver
 {
-    [SerializeField] [Range(0, 180)] private float angle = 5f;
+    [SerializeField] [Range(0, 180)] private float baseAngle = 5f;
 
     protected internal override void ResolvePath()
     {
         if (shot.target == null)
         {
-            shot.target = FindTarget(transform.position, transform.forward, angle, out shot.lastSeg.hit).Combat;
+            shot.target = FindTarget(transform.position, transform.forward, baseAngle, out shot.lastSeg.hit).Combat;
         }
     }
 
-    public static ShotMagnetismTarget FindTarget(Vector3 position, Vector3 direction, float angle, out RaycastHit hit)
+    public static ShotMagnetismTarget FindTarget(Vector3 position, Vector3 direction, float magnetismAngle, out RaycastHit hit)
     {
         ShotMagnetismTarget target = null;
         hit = default;
@@ -23,16 +23,18 @@ public class ShotMagnetism : ShotPathResolver
         foreach (ShotMagnetismTarget t in FindObjectsOfType<ShotMagnetismTarget>())
         {
             float ang = Vector3.Angle(position - t.transform.position, direction);
-            if (target == null || ang < minAngle)
+            if (ang < magnetismAngle+t.AdditionalMagnetismAngle) //Verify it's within magnetism angle range
             {
-                target = t;
-                minAngle = ang;
+                if (target == null || ang < minAngle) //Verify it's the closest match
+                {
+                    target = t;
+                    minAngle = ang;
+                }
             }
+
         }
-            
-        //Verify it's within magnetism angle range
-        if (minAngle > angle) target = null;
-        else
+
+        if (target != null)
         {
             //Redo raycast to make sure we can hit it
             bool hasLineOfSight = Physics.Raycast(position, target.transform.position - position, out hit);
