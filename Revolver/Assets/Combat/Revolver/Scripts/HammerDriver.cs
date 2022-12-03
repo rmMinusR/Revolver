@@ -12,7 +12,8 @@ public sealed class HammerDriver : MonoBehaviour
     [SerializeField] private Transform hammer;
 
     [Header("Movement parameters")]
-    [SerializeField] private bool locked;
+    [SerializeField] private bool drawnBack;
+    [SerializeField] private bool tryingToFire;
     [SerializeField] [Range(0, 1)] private float lockAngle = 0.5f;
     [SerializeField] [Min(0)] private float returnForce = 1;
     private float hammerLoc = 0;
@@ -23,7 +24,6 @@ public sealed class HammerDriver : MonoBehaviour
     [SerializeField] [Min(0)] private float lockHapticDur = 1;
 
     [Header("Impact feedback")]
-    [SerializeField] [Min(0)] private float sparkThreshold = 0.3f;
     [SerializeField] private SparkEmitter sparkEmitter;
 
     private void Start()
@@ -41,9 +41,10 @@ public sealed class HammerDriver : MonoBehaviour
         {
             hammerLoc = Mathf.Clamp01(pullInputCurve.Evaluate(touchpad.Position.y));
             hammerVel = 0;
-            if (!locked && hammerLoc > lockAngle)
+            if (!drawnBack && hammerLoc > lockAngle)
             {
-                locked = true;
+                drawnBack = true;
+                tryingToFire = false;
                 if (!revolver.cylinderPopout.IsOut) revolver.cylinderState.AdvanceCylinder();
                 OpenXRInput.SendHapticImpulse(revolver.haptics.action, lockHapticAmp, lockHapticDur);
             }
@@ -54,7 +55,7 @@ public sealed class HammerDriver : MonoBehaviour
         hammerVel += -returnForce * Time.deltaTime;
 
         //If locked, hold angle
-        if (locked && hammerLoc <= lockAngle)
+        if (drawnBack && !tryingToFire && hammerLoc <= lockAngle)
         {
             hammerLoc = lockAngle;
             hammerVel = 0;
@@ -63,9 +64,11 @@ public sealed class HammerDriver : MonoBehaviour
         //If hitting lower bound, hold angle. If hitting fast enough, ignite.
         if (hammerLoc <= 0)
         {
-            if (Mathf.Abs(hammerVel) > sparkThreshold) sparkEmitter.Fire();
+            if (drawnBack && tryingToFire) sparkEmitter.Fire();
             hammerLoc = 0;
             hammerVel = 0;
+            tryingToFire = false;
+            drawnBack = false;
         }
 
         //Update visuals
@@ -78,6 +81,6 @@ public sealed class HammerDriver : MonoBehaviour
     [ContextMenu("Release (manual)")]
     public void Release()
     {
-        locked = false;
+        tryingToFire = true;
     }
 }

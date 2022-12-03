@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-[RequireComponent(typeof(MainCamera))]
+[RequireComponent(typeof(Camera))]
 public class MainCamera : MonoBehaviour {
 
     void Awake () {

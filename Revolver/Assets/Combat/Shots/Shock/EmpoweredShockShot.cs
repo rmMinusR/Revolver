@@ -7,7 +7,7 @@ public class EmpoweredShockShot : EmpoweredShotEffect
 {
     [SerializeField] private ChainLightning arcPrefab;
 
-    public override void Hit(ICombatAffector combatAffector, ICombatTarget target, RaycastHit hit)
+    protected override void Hit(ICombatAffector combatAffector, ICombatTarget target, RaycastHit hit)
     {
         ChainLightning arc = Instantiate(arcPrefab);
         arc.SetSource(combatAffector);

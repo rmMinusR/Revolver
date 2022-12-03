@@ -36,6 +36,7 @@ public class Portal : MonoBehaviour {
     private void OnDisable() => Instances.Remove(this);
 
     void LateUpdate () {
+        portalCam.fieldOfView = Camera.main.fieldOfView;
         HandleTravellers ();
     }
 

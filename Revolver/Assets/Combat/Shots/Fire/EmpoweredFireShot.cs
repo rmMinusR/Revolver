@@ -14,7 +14,7 @@ public sealed class EmpoweredFireShot : EmpoweredShotEffect
     [SerializeField] [Min(0)] private float explodeRange = 5;
     [SerializeField] private GameObject explosionVfx;
 
-    public override void Hit(ICombatAffector source, ICombatTarget initialTarget, RaycastHit hit)
+    protected override void Hit(ICombatAffector source, ICombatTarget initialTarget, RaycastHit hit)
     {
         //Collect targets
         HashSet<ICombatTarget> affected = new HashSet<ICombatTarget>();

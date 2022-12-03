@@ -1,18 +1,20 @@
 ﻿using Combat;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.VFX;
 
+[DefaultExecutionOrder(-10)]
 public class FiredShot : MonoBehaviour, ICombatEffect
 {
     [SerializeField] [Min(0)] private float lingerTime = 2;
     [SerializeField] Gradient colorOverTime;
     private float lingerTimeRemaining = 0;
 
-    private RaycastHit hit;
-    private ICombatTarget target;
+    [NonSerialized] public RaycastHit hit;
+    [NonSerialized] public ICombatTarget target;
 
     [SerializeField] [Range(0, 180)] private float magnetismAngle = 5f;
     [SerializeField] private List<Damage> effects;
@@ -43,9 +45,11 @@ public class FiredShot : MonoBehaviour, ICombatEffect
 
             //Verify it's within magnetism angle range
             if (minAngle > magnetismAngle) target = null;
-
-            //Redo raycast to make sure we can hit it
-            else if (!Physics.Raycast(transform.position, ((Component)target).transform.position-transform.position, out hit)) target = null;
+            else
+            {
+                //Redo raycast to make sure we can hit it
+                if (!Physics.Raycast(transform.position, ((Component)target).transform.position - transform.position, out hit)) target = null;
+            }
         }
 
         //Ensure good hit location, even if firing at the air
@@ -59,12 +63,6 @@ public class FiredShot : MonoBehaviour, ICombatEffect
 
         //Apply damage
         if (target != null && __source.GetSentimentTowards(target) != Sentiment.Friendly) Apply(target);
-
-        //Apply empowered effects
-        if (isEmpowered)
-        {
-            foreach (EmpoweredShotEffect e in GetComponents<EmpoweredShotEffect>()) e.Hit(GetSource(), target, hit);
-        }
     }
 
     private ICombatAffector __source;
