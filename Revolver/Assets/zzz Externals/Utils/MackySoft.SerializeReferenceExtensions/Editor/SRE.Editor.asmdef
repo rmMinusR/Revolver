@@ -1,0 +1,18 @@
+{
+    "name": "SRE.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:c8f855a9b15030a4586c76fa2661be70"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

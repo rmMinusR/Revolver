@@ -80,7 +80,6 @@ public sealed class ContextMapSteering : ISteeringProvider
 
 #if UNITY_EDITOR
     [SerializeField] private bool enableGizmos = false;
-#endif
 
     private void OnDrawGizmos()
     {
@@ -100,11 +99,10 @@ public sealed class ContextMapSteering : ISteeringProvider
             Gizmos.DrawSphere(endPos, 0.2f);
             //Gizmos.DrawSphere(rootPos, 0.2f);
 
-#if UNITY_EDITOR
             //UnityEditor.Handles.Label(transform.position+i.direction*0.75f, i.value.ToString());
-#endif
         }
     }
+#endif
 
     public override ControlData GetControlCommand()
     {
