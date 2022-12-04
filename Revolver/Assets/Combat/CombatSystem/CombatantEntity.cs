@@ -54,7 +54,10 @@ namespace Combat
 
             //TODO Children should probably override this
             Destroy(gameObject);
+            OnDeath?.Invoke();
         }
+
+        public event Action OnDeath;
 
         [Header("Alignment")]
         [SerializeField] protected Group alignment;

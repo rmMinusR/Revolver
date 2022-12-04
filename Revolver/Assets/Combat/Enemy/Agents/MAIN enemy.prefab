@@ -69,6 +69,7 @@ GameObject:
   - component: {fileID: 4648314447641183219}
   - component: {fileID: 2095490868040939650}
   - component: {fileID: -3748374233368768303}
+  - component: {fileID: 4124514019604720291}
   m_Layer: 0
   m_Name: MAIN enemy
   m_TagString: Untagged
@@ -247,6 +248,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   additionalMagnetismAngle: 0
+--- !u!114 &4124514019604720291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501425884862704604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6626debd4de529a4a8fc4fb92378e646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6167301161687322865, guid: a8ece2db81bd5d74582e068cd6ab2670, type: 3}
+  count: 3
+  scatterRange: 0.5
 --- !u!1 &501425886256472017
 GameObject:
   m_ObjectHideFlags: 0
