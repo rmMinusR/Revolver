@@ -10,10 +10,14 @@ public class ShotRicochetRedirector : ShotPathResolver
 
     protected internal override void ResolvePath()
     {
-        if (!isProcessing && shot.lastSeg.hit.collider.GetComponentInParent<Ricochet>())
+        Collider hit = shot.lastSeg.hit.collider;
+        if (!isProcessing && hit && hit.GetComponentInParent<Ricochet>() != null)
         {
             //Find new output location
             Ray ray = new Ray(shot.lastSeg.end, Vector3.Reflect(shot.lastSeg.direction, shot.lastSeg.hit.normal));
+            ray.origin += ray.direction * 0.01f;
+
+            Debug.DrawLine(ray.origin, ray.origin+ray.direction*1, Color.green, 5);
 
             //Try to magnetize
             ShotMagnetismTarget newTarget = ShotMagnetism.FindTarget(ray.origin, ray.direction, magnetismAngle, out _);

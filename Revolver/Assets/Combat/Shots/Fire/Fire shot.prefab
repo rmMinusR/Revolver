@@ -73,18 +73,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7321755617811689431, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
       propertyPath: colorOverTime.ctime1
-      value: 20046
+      value: 6554
       objectReference: {fileID: 0}
     - target: {fileID: 7321755617811689431, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
       propertyPath: colorOverTime.ctime2
-      value: 44395
+      value: 20046
       objectReference: {fileID: 0}
     - target: {fileID: 7321755617811689431, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
       propertyPath: colorOverTime.ctime3
-      value: 65535
+      value: 44395
       objectReference: {fileID: 0}
     - target: {fileID: 7321755617811689431, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
       propertyPath: colorOverTime.ctime4
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321755617811689431, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
+      propertyPath: colorOverTime.ctime5
       value: 65535
       objectReference: {fileID: 0}
     - target: {fileID: 7321755617811689431, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
@@ -97,27 +101,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7321755617811689431, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
       propertyPath: colorOverTime.key1.g
-      value: 0.41899055
+      value: 0.9451673
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321755617811689431, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
+      propertyPath: colorOverTime.key1.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321755617811689431, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
+      propertyPath: colorOverTime.key2.b
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7321755617811689431, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
       propertyPath: colorOverTime.key2.g
-      value: 0.036625974
+      value: 0.4984324
       objectReference: {fileID: 0}
     - target: {fileID: 7321755617811689431, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
       propertyPath: colorOverTime.key2.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321755617811689431, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
+      propertyPath: colorOverTime.key3.g
+      value: 0.036625974
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321755617811689431, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
+      propertyPath: colorOverTime.key3.r
       value: 0.6226415
       objectReference: {fileID: 0}
     - target: {fileID: 7321755617811689431, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
       propertyPath: colorOverTime.key4.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7321755617811689431, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
       propertyPath: colorOverTime.key4.g
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7321755617811689431, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
       propertyPath: colorOverTime.key4.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7321755617811689431, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
       propertyPath: colorOverTime.m_NumAlphaKeys
@@ -125,7 +145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7321755617811689431, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
       propertyPath: colorOverTime.m_NumColorKeys
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7321755617811689433, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
       propertyPath: m_Name

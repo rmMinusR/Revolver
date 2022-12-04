@@ -211,6 +211,10 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   trailPrefab: {fileID: 7130757681116913471}
   isEmpowered: 0
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 19
+  maxRange: 100
 --- !u!114 &490485074535340316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5193ad1c0bd90494c987a7dcfb5ec63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 5
+  baseAngle: 5
 --- !u!114 &-3791830944287855126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,4 +252,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cecb490669cc7747b9defef62d3aa59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  magnetismAngle: 90
+  magnetismAngle: 35

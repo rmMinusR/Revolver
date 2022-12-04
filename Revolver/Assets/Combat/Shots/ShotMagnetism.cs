@@ -10,7 +10,9 @@ public class ShotMagnetism : ShotPathResolver
     {
         if (shot.target == null)
         {
-            shot.target = FindTarget(transform.position, transform.forward, baseAngle, out shot.lastSeg.hit).Combat;
+            RaycastHit tmpHit;
+            shot.target = FindTarget(transform.position, transform.forward, baseAngle, out tmpHit)?.Combat;
+            if (shot.target != null) shot.lastSeg.hit = tmpHit;
         }
     }
 
@@ -37,7 +39,7 @@ public class ShotMagnetism : ShotPathResolver
         if (target != null)
         {
             //Redo raycast to make sure we can hit it
-            bool hasLineOfSight = Physics.Raycast(position, target.transform.position - position, out hit);
+            bool hasLineOfSight = Physics.Raycast(position, target.transform.position - position, out hit, 100, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore);
             if (!hasLineOfSight) target = null;
         }
 

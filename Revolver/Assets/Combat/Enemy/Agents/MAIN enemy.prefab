@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aba8b257cbd8c1b469bf646eb9f6af45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 12
+  range: 24
   updateFrequency: 0.1
   fov: 90
   obstructingLayers:
@@ -2062,7 +2062,7 @@ GameObject:
   - component: {fileID: 7906614654654729802}
   - component: {fileID: 8822524184381646174}
   - component: {fileID: 2764950658446499117}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Proximity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2107,7 +2107,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4
+  m_Radius: 12
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8214382712099975633
 GameObject:

@@ -42,6 +42,7 @@ public class ShotCore : MonoBehaviour
         foreach (PathSeg seg in pathSegments)
         {
             LineRenderer trail = Instantiate(trailPrefab, transform);
+            trail.gameObject.SetActive(true);
             trails.Add(trail);
             trail.SetPosition(0, seg.start);
             trail.SetPosition(1, seg.end);
@@ -51,13 +52,24 @@ public class ShotCore : MonoBehaviour
         foreach (ShotEffect e in GetComponents<ShotEffect>()) e.Hit(source, target, lastSeg.hit);
     }
 
+    [SerializeField] private LayerMask hitMask = Physics.DefaultRaycastLayers;
+    [SerializeField] [Min(0)] private float maxRange = 100;
+
+    public bool DoRaycast(Ray ray, out RaycastHit hit, Func<Collider, bool> whitelist = null)
+    {
+        RaycastHit[] hits = Physics.RaycastAll(ray, maxRange, hitMask, QueryTriggerInteraction.Ignore);
+        hit = hits.Where(i => whitelist?.Invoke(i.collider) ?? true).MinBy(i => i.distance);
+        return hit.collider;
+    }
+
     public void AppendPathSegment(Ray ray, bool useShotResolvers)
     {
         //Default case: Raycast
         PathSeg raycast = new PathSeg() { start = ray.origin };
-        if (Physics.Raycast(ray, out raycast.hit)) target = raycast.hit.collider.GetComponentInParent<ICombatTarget>();
-        else raycast.hit.point = ray.origin + ray.direction * 100; //Ensure good hit location, even if firing at the air
+        if (DoRaycast(ray, out raycast.hit)) target = raycast.hit.collider.GetComponentInParent<ICombatTarget>();
+        else raycast.hit.point = ray.origin + ray.direction * maxRange; //Ensure good hit location, even if firing at the air
         pathSegments.Add(raycast);
+        Debug.DrawLine(raycast.start, raycast.end, Color.blue, 5);
 
         if (useShotResolvers)
         {

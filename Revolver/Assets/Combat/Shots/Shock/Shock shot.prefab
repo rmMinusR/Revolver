@@ -73,7 +73,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7321755617811689431, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
       propertyPath: colorOverTime.ctime1
-      value: 22594
+      value: 15806
       objectReference: {fileID: 0}
     - target: {fileID: 7321755617811689431, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
       propertyPath: colorOverTime.ctime2
@@ -100,12 +100,16 @@ PrefabInstance:
       value: 0.7490196
       objectReference: {fileID: 0}
     - target: {fileID: 7321755617811689431, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
+      propertyPath: colorOverTime.key1.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321755617811689431, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
       propertyPath: colorOverTime.key1.g
-      value: 0.8687169
+      value: 0.9248905
       objectReference: {fileID: 0}
     - target: {fileID: 7321755617811689431, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
       propertyPath: colorOverTime.key1.r
-      value: 0.627451
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7321755617811689431, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
       propertyPath: colorOverTime.key2.b
@@ -116,16 +120,20 @@ PrefabInstance:
       value: 0.31493044
       objectReference: {fileID: 0}
     - target: {fileID: 7321755617811689431, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
+      propertyPath: colorOverTime.key2.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321755617811689431, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
       propertyPath: colorOverTime.key3.b
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7321755617811689431, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
       propertyPath: colorOverTime.key3.g
-      value: 1
+      value: 0.31493044
       objectReference: {fileID: 0}
     - target: {fileID: 7321755617811689431, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
       propertyPath: colorOverTime.key3.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7321755617811689431, guid: a5b9b184e1d37234cbdf4b19ff888209, type: 3}
       propertyPath: colorOverTime.key4.b
